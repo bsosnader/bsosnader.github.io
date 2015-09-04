@@ -15,7 +15,7 @@
       <h2>I'm a Front-End Web Designer &amp; Developer</h2>
     </header>
       <div class="content">
-        <h2 id="subhead-1">Testing 123</h2>
+        <h2 id="subhead-1" class="hidden">Testing 123</h2>
         <div class="row"> <a href="#subhead-2">Please</a>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolores animi praesentium est dolor culpa voluptate fugiat rerum ut laborum sint temporibus eligendi fuga dolorem saepe neque, odit dicta debitis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt maiores quaerat, hic vitae voluptatibus, minus inventore commodi excepturi rem ex doloremque eius ut quas, id neque eaque optio, quibusdam blanditiis.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore rem ullam, fugit eaque eum impedit dignissimos eius voluptatem blanditiis, reprehenderit quibusdam explicabo nisi doloremque cumque sint eveniet neque unde enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, expedita consequuntur enim nulla ullam obcaecati doloribus numquam facilis provident libero optio placeat nihil quos, ad at, natus, quis pariatur praesentium!</p>
@@ -51,6 +51,7 @@
     <script>
 
       $('#subhead-1').addClass('animated fadeInLeftBig');
+      $('#subhead-1').removeClass('hidden');
       $('#subhead-2').waypoint(function() {
         $('#subhead-2').addClass('animated fadeInRightBig');
         $('#subhead-2').removeClass('hidden');
