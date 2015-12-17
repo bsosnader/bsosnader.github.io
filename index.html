@@ -26,14 +26,14 @@
   </div>
 </div>
 <div class="row">
-  <div class="medium-4 columns"><i class="fa fa-code fa-5x center"></i><h4 class="subheader center">HTML</h4>HTML is the foundation for any website and forms the most basic building blocks of a site. It provides the framework for the content of the site to be built around. I use HTML5 with my websites to take advantage of the newest features and optizations it provides. If you need legacy support for older browsers, I can provide that as well.</div>
+  <div class="medium-4 columns"><i class="fa fa-code fa-5x center" id="test"></i><h4 class="subheader center">HTML</h4>HTML is the foundation for any website and forms the most basic building blocks of a site. It provides the framework for the content of the site to be built around. I use HTML5 with my websites to take advantage of the newest features and optizations it provides. If you need legacy support for older browsers, I can provide that as well.</div>
   <div class="medium-4 columns"><i class="fa fa-pencil fa-5x center"></i><h4 class="subheader center">CSS</h4>CSS provides the beauty to make the page look like something other than plain old text. CSS is the most powerful tool in web design because of how adaptable it is. I use SCSS and Compass to make easily editable and powerful CSS.</div>
   <div class="medium-4 columns"><i class="fa fa-rocket fa-5x center"></i> <h4 class="subheader center">Javascript</h4>Javascript is what adds that extra pop to a website. Without it, many more complex features of websites would not be able to be integrated. I use Javascript and JQuery to provide robust finishing touches to extra features that really make a site stand out.</div>
 </div>
 
 
 
-<h2 id="subhead-2" class="hidden">My Portfolio</h2>
+<h2 id="subhead-2" >My Portfolio</h2>
 
 
 <div class="row">
@@ -51,11 +51,24 @@
     jQuery("#fittext").fitText(0.7, {maxFontSize: '132px', minFontSize: '80px' });
     $('#subhead-1').addClass('animated fadeInLeftBig');
     $('#subhead-1').removeClass('hidden');
+    /**$(document).ready(function() {
     $('#subhead-2').waypoint(function() {
       $('#subhead-2').addClass('animated fadeInRightBig');
       $('#subhead-2').removeClass('hidden');
     }, { offset: '90%' 
   });
+    }); **/
+  $('#subhead-2').css('opacity', 0);
+  var waypoint = new Waypoint({
+  element: document.getElementById('subhead-2'),
+  handler: function() {
+    $('#subhead-2').css('opacity', 100);
+    $('#subhead-2').addClass('animated fadeInRightBig');
+  },
+  offset: '100%'
+})
+      $('#subhead-2').css('opacity', 100);
+    $('#subhead-2').addClass('animated fadeInRightBig');
 
 </script>
 </body>
