@@ -37,9 +37,16 @@
 
 
 <div class="row">
-  <div class="medium-6 columns"><h4 class="subheader">Even more...</h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-  <div class="medium-3 columns"><h4 class="subheader">More...</h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus asperiores numquam enim exercitationem officiis voluptatum molestias consectetur aspernatur dolorum, porro dignissimos perspiciatis eveniet distinctio! Minima error corporis harum minus. Delectus.</div>
-  <div class="medium-3 columns"><h4 class="subheader">More...</h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quibusdam est consequatur quis, autem vero rerum quia architecto, voluptas cum reiciendis, nostrum eligendi saepe ipsa! Consequuntur repellat adipisci tempore quod.</div>
+  <div class="medium-6 columns"><h4 class="subheader center">Even more...</h4>
+    <ul class="clearing-thumbs clearing-feature" data-clearing>
+    <li class="clearing-featured-img"><a href="images/portfolio/agency1.PNG"><img src="images/portfolio/agency1.PNG"></a></li>
+      <li><a href="images/portfolio/agency2.PNG"><img src="images/portfolio/agency2.PNG"></a></li>
+      <li><a href="images/portfolio/agency3.PNG"><img src="images/portfolio/agency3.PNG"></a></li>
+      <li><a href="images/portfolio/agency4.PNG"><img src="images/portfolio/agency4.PNG"></a></li>
+      <li><a href="images/portfolio/agency5.PNG"><img src="images/portfolio/agency5.PNG"></a></li>
+    </ul>
+  </div>
+  <div class="medium-6 columns"><h4 class="subheader center">More...</h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus asperiores numquam enim exercitationem officiis voluptatum molestias consectetur aspernatur dolorum, porro dignissimos perspiciatis eveniet distinctio! Minima error corporis harum minus. Delectus.</div>
 </div>
 </div>
 
@@ -47,6 +54,10 @@
 <script src="js/vendor/libraries.min.js"></script>
 <script src="js/vendor/foundation.min.js"></script>
   <script src="js/app.min.js"></script>
+
+  <script>
+    $(document).foundation();
+  </script>
   <script>
     jQuery("#fittext").fitText(0.7, {maxFontSize: '132px', minFontSize: '80px' });
     $('#subhead-1').addClass('animated fadeInLeftBig');
@@ -57,9 +68,9 @@
       $('#subhead-2').removeClass('hidden');
     }, { offset: '90%' 
   });
-    }); **/
-  $('#subhead-2').css('opacity', 0);
-  var waypoint = new Waypoint({
+}); **/
+$('#subhead-2').css('opacity', 0);
+var waypoint = new Waypoint({
   element: document.getElementById('subhead-2'),
   handler: function() {
     $('#subhead-2').css('opacity', 100);
@@ -67,8 +78,9 @@
   },
   offset: '100%'
 })
-      $('#subhead-2').css('opacity', 100);
-    $('#subhead-2').addClass('animated fadeInRightBig');
+$('#subhead-2').css('opacity', 100);
+$('#subhead-2').addClass('animated fadeInRightBig');
+
 
 </script>
 </body>
