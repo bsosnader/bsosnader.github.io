@@ -39,7 +39,7 @@
 <div class="row">
   <div class="medium-6 columns"><h4 class="subheader center"><a href="http://sosnaderagency.com">The Sosnader Agency, Inc.</a></h4>
     <ul class="clearing-thumbs clearing-feature" data-clearing>
-      <li class="clearing-featured-img"><a href="images/portfolio/agency1.PNG"><img data-caption="I designed this website for a local business owner who wanted to attract more customers to his business. He wanted to be able to have pictures in a gallery so I added a dynamic photogallery for him. He also wanted to be able to post articles on his own so I included a content management system in PHP so he could add pages on his own. The website is dynamic and looks great on both mobile and desktop browsers." src="images/portfolio/agency1.PNG"></a></li>
+      <li class="clearing-featured-img"><a href="images/portfolio/agency1.PNG"><img data-caption="I designed this website for a local business owner who wanted to attract more customers to his business. He wanted to be able to have pictures in a gallery so I added a dynamic photogallery for him. He also wanted to be able to post articles on his own so I included a content management system in PHP so he could add pages on his own. The website is dynamic and looks great on both mobile and desktop browsers." src="images/portfolio/agency1-th.png"></a></li>
       <li><a href="images/portfolio/agency2.PNG"><img src="images/portfolio/agency2.PNG"></a></li>
       <li><a href="images/portfolio/agency3.PNG"><img src="images/portfolio/agency3.PNG"></a></li>
       <li><a href="images/portfolio/agency4.PNG"><img src="images/portfolio/agency4.PNG"></a></li>
@@ -48,7 +48,7 @@
   </div>
   <div class="medium-6 columns"><h4 class="subheader center">John Shapiro Superheroes</h4>
     <ul class="clearing-thumbs clearing-feature" data-clearing>
-      <li class="clearing-featured-img"><a href="images/portfolio/shapiro3.PNG"><img data-caption="This website was created for a local charity 5k run. They wanted to use Adobe Business Catalyst, so I integrated it into the website so that they could make changes to it whenever they wanted to. My design is no longer in use, so these pictures are only local screenshots, without Adobe Business Catalyst integration." src="images/portfolio/shapiro3.PNG"></a></li>
+      <li class="clearing-featured-img"><a href="images/portfolio/shapiro3.PNG"><img data-caption="This website was created for a local charity 5k run. They wanted to use Adobe Business Catalyst, so I integrated it into the website so that they could make changes to it whenever they wanted to. My design is no longer in use, so these pictures are only local screenshots, without Adobe Business Catalyst integration." src="images/portfolio/shapiro3-th.png"></a></li>
       <li><a href="images/portfolio/shapiro2.PNG"><img src="images/portfolio/shapiro2.PNG"></a></li>
       <li><a href="images/portfolio/shapiro1.PNG"><img src="images/portfolio/shapiro1.PNG"></a></li>
     </ul>
@@ -57,23 +57,27 @@
 <h2 id="subhead-3" >Contact Me</h2>
 <div class="row">
   <div class="medium-8 columns">
-  <form action="//formspree.io/brendensosnader@gmail.com"
-      method="POST">
+  <form id="contactform" method="POST">
       <h3>Get in touch.</h3>
       <label>Name</label>
     <input type="text" name="name">
     <label>Email</label>
     <input type="email" name="_replyto">
     <label>Message</label>
-      <textarea placeholder="Enter your message here" required></textarea>
+      <textarea placeholder="Enter your message here" required name="message"></textarea>
     <input type="hidden" name="_next" value="//sosnader.tk" />
     <input type="hidden" name="_subject" value="Message from sosnader.tk" />
+    <input type="text" name="_gotcha" style="display:none;" />
     <input type="submit" class="nice blue radius button" value="Send">
 </form>
+<script>
+    var contactform =  document.getElementById('contactform');
+    contactform.setAttribute('action', '//formspree.io/' + 'brendensosnader' + '@' + 'gmail' + '.' + 'com');
+</script>
 
   </div>
     <div class="medium-4 columns">
-    <p>If you want to contact me about designing a website, feel free to send a message using the form below. I'm currently very busy, so I can't guarantee I'll be able to take on your project. Still, email if you're interested!</p>
+    <p>If you want to contact me about designing a website, feel free to send a message using this form. I'm currently very busy, so I can't guarantee I'll be able to take on your project. Still, email if you're interested!</p>
 </div>
 </div>
 <footer>
