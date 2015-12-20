@@ -60,11 +60,11 @@
   <form id="contactform" method="POST">
       <h3>Get in touch.</h3>
       <label>Name</label>
-    <input type="text" name="name">
+    <input type="text" placeholder="Your name" name="name" required>
     <label>Email</label>
-    <input type="email" name="_replyto">
+    <input type="email" name="_replyto" placeholder="Your email" required>
     <label>Message</label>
-      <textarea placeholder="Enter your message here" required name="message"></textarea>
+      <textarea placeholder="Your message" required name="message"></textarea>
     <input type="hidden" name="_next" value="//sosnader.tk" />
     <input type="hidden" name="_subject" value="Message from sosnader.tk" />
     <input type="text" name="_gotcha" style="display:none;" />
