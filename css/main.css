@@ -194,9 +194,11 @@ pre {
   position: relative; }
 
 .home-header {
-  background: url(/../img/a.png) fixed;
+  background: url(/../img/a.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-position: center;
   text-align: center;
   margin: 0;
   padding-bottom: 1.5rem;
