@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Brenden Sosnader</title>
+    <description>Hi, I&#39;m Brenden Sosnader. I study computer science at Penn State University and I like to make things. This is where I show them off.
+</description>
+    <link>http://sosnader.tk/</link>
+    <atom:link href="http://sosnader.tk/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 11 Jul 2016 23:00:24 -0400</pubDate>
+    <lastBuildDate>Mon, 11 Jul 2016 23:00:24 -0400</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Installing GalliumOS on a Toshiba Chromebook 2 (2015)</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/img/posts/desktop.png&quot; alt=&quot;Desktop screenshot&quot; /&gt;
+&lt;em&gt;my customized linux setup&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Ever since Apple declined to release new Retina Macbook Pros at WWDC 2016, I’ve been on the hunt for a laptop to tide me over until the eventual release sometime in the fall. While I don’t exactly &lt;em&gt;need&lt;/em&gt; a new laptop just yet (after all, the lab computers at Penn State would be perfectly serviceable for the first few months of my first semester) I decided I would prefer to have something portable to take to class. I wasn’t planning on breaking the bank, so I settled on a Chromebook, and after researching a bit (with the help of &lt;a href=&quot;http://reddit.com/r/chromeos&quot;&gt;Reddit&lt;/a&gt;) I settled on a &lt;a href=&quot;https://www.amazon.com/Toshiba-Chromebook-CB35-C3300-Backlit-Keyboard/dp/B015806LMM&quot;&gt;Toshiba Chromebook 2&lt;/a&gt;, the 2015 edition with the backlit keyboard and beautiful IPS screen. I was able to find a great deal on a refurbished one for $230.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;One of the reasons Chromebooks are so cheap is that they aren’t often built with high-powered components. My version came with a 1.7 GHz Celeron processor, 4 GB of ram, and a 16 GB SSD. Most limiting, however, it came installed with ChromeOS. ChromeOS, while great for casual web browsing, doesn’t offer much when it comes to setting up a dev environment. While there are options for setting up a full linux environment within ChromeOS (see: &lt;a href=&quot;https://github.com/dnschneid/crouton&quot;&gt;Crouton&lt;/a&gt;), I decided I didn’t want ChromeOS a single bit.&lt;/p&gt;
+
+&lt;p&gt;Yet, I had to give ChromeOS credit where credit was due. Because it’s so lightweight and its kernel is so optimized, it runs great on the limited hardware most Chromebooks provide. While installing full Linux (and even Windows!) is possible, it’s not always the best, performance-wise, and battery life can take a hit. Adding to the complexity, oftentimes it’s a pain to set up drivers and keyboard shortcuts to get your hardware working properly on the new OS.&lt;/p&gt;
+
+&lt;p&gt;That’s where  &lt;a href=&quot;https://galliumos.org/&quot;&gt;GalliumOS&lt;/a&gt; comes in. I found GalliumOS after searching around a bit, and reading the description convinced me it was what I needed. It’s super lightweight, and optimized almost as much as ChromeOS is, utilizing drivers and core files from the ChromeOS kernel itself to run near seamlessly on many popular Chromebooks.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/posts/gallium.png&quot; alt=&quot;GalliumOS Homepage&quot; /&gt;
+&lt;em&gt;the GalliumOS homepage&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;There’s a few options when it comes to actually installing GalliumOS. The least invasive involves using a utility called &lt;a href=&quot;https://chrx.org/&quot;&gt;chrx&lt;/a&gt;. There’s a simple step-by-step process which involves enabling Developer Mode (more on that later), running a script to flash the firmware, and then running another script to install GalliumOS alongside ChromeOS.&lt;/p&gt;
+
+&lt;p&gt;Like I said before however, I didn’t want to see ChromeOS &lt;em&gt;at all.&lt;/em&gt; Not to mention there’s other problems with going the dual-boot route. You’ll see a scary white screen warning you of the terrible damage you’ve done to your system (not really) and you’ll always have to enter either &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+L&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+D&lt;/code&gt; to enter GalliumOS or ChromeOS, repsectively. And there’s a few minor graphical glitches while booting up. 
+&lt;img src=&quot;/img/posts/osv.png&quot; alt=&quot;os verification example&quot; /&gt;
+&lt;em&gt;example of the scary white screen&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;While&lt;/p&gt;
+
+&lt;p&gt;TBD&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 11 Jul 2016 08:54:15 -0400</pubDate>
+        <link>http://sosnader.tk/hardware/2016/07/11/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://sosnader.tk/hardware/2016/07/11/welcome-to-jekyll.html</guid>
+        
+        
+        <category>hardware</category>
+        
+      </item>
+    
+  </channel>
+</rss>
