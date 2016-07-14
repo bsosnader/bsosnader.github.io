@@ -6,9 +6,37 @@
 </description>
     <link>http://sosnader.tk/</link>
     <atom:link href="http://sosnader.tk/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 13 Jul 2016 20:10:44 -0400</pubDate>
-    <lastBuildDate>Wed, 13 Jul 2016 20:10:44 -0400</lastBuildDate>
+    <pubDate>Thu, 14 Jul 2016 12:55:30 -0400</pubDate>
+    <lastBuildDate>Thu, 14 Jul 2016 12:55:30 -0400</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>My Quest to Learn C</title>
+        <description>&lt;p&gt;As a new programmer, I’m always trying to absorb as much information as possible and learn as many tools as possible. After reading through the &lt;a href=&quot;http://matt.might.net/articles/what-cs-majors-should-know/&quot;&gt;daunting list&lt;/a&gt; of “What every computer science major should know” by Matt Might, I came to the realization that I have a &lt;em&gt;lot&lt;/em&gt; of work ahead of me. 
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;I’m pretty decent with HTML/CSS (although not programming languages), a result of just playing around in Notepad as early as 7th grade. And the Java class I took in high school, although basic, taught me the fundamentals of “real” programming. Lately, however, I haven’t been doing much of either. I’m not one to just sit around, so I decided to attempt to learn one of the most pervasive languages out there—C.&lt;/p&gt;
+
+&lt;h1 id=&quot;why-c&quot;&gt;Why C?&lt;/h1&gt;
+&lt;p&gt;I’ve always embraced the philosophy that it’s less about learning specific languages, and more about learning the processes and theory behind everything. Syntax can come later. However, it’s easier to learn theory within the context of one specific language, and C offers a very fundamental approach to programming that helps you understand what’s actually going on inside the computer. Sure, it’s a lot harder than a higher-level language like Python, but that’s what makes it rewarding.&lt;/p&gt;
+
+&lt;h1 id=&quot;learning&quot;&gt;Learning&lt;/h1&gt;
+&lt;p&gt;When it comes to learning C, there’s really no substitute to the classic:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/The_C_Programming_Language_cover.svg/371px-The_C_Programming_Language_cover.svg.png&quot; alt=&quot;the C programming language cover&quot; /&gt;
+&lt;em&gt;&lt;a href=&quot;https://www.amazon.com/Programming-Language-Brian-W-Kernighan/dp/0131103628&quot;&gt;The C Programming Language&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;There’s tons of other resources out there, from Harvard’s free &lt;a href=&quot;https://www.edx.org/course/introduction-computer-science-harvardx-cs50x#!&quot;&gt;CS50x&lt;/a&gt; to countless online tutorials. From what I read, though, the verdict was clear—to best learn C, you have to read K&amp;amp;R. Can you really turn down a textbook written by the &lt;em&gt;creator&lt;/em&gt; of the language? Not to mention its short length of only 270 pages, much more enticing than some 600-page behemoth of dense verbosity.&lt;/p&gt;
+
+&lt;p&gt;I’ve already started working through it, and although I’m only on Chapter 1, I’m already enjoying myself. I’ll be hosting my code on github so I can work wherever I am. I’ll be making periodic status updates (probably about my increasing levels of frustration and anger) as I get farther. Until then, I’m off to write some more code.&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 14 Jul 2016 00:00:00 -0400</pubDate>
+        <link>http://sosnader.tk/2016/07/14/learning-c.html</link>
+        <guid isPermaLink="true">http://sosnader.tk/2016/07/14/learning-c.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Installing GalliumOS on a Toshiba Chromebook 2 (2015)</title>
@@ -75,12 +103,10 @@
 
 &lt;p&gt;And that’s it! I’m completely happy with my laptop, and I’m even second-guessing whether or not I’ll really need the new Macbook Pro when it comes out. This little thing looks beautiful and I haven’t run into any hiccups or slowdowns yet. Certainly a great deal for only $280.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 11 Jul 2016 08:54:15 -0400</pubDate>
-        <link>http://sosnader.tk/hardware/2016/07/11/installing-galliumos-on-chromebook.html</link>
-        <guid isPermaLink="true">http://sosnader.tk/hardware/2016/07/11/installing-galliumos-on-chromebook.html</guid>
+        <pubDate>Mon, 11 Jul 2016 00:00:00 -0400</pubDate>
+        <link>http://sosnader.tk/2016/07/11/installing-galliumos-on-chromebook.html</link>
+        <guid isPermaLink="true">http://sosnader.tk/2016/07/11/installing-galliumos-on-chromebook.html</guid>
         
-        
-        <category>hardware</category>
         
       </item>
     
