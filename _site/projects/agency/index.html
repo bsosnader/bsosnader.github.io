@@ -6,18 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>About</title>
+  <title>The Sosnader Agency, Inc.</title>
   <meta name="description" content="Hi, I'm Brenden Sosnader. I study computer science at Penn State University and I like to make things. This is where I show them off.
 ">
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:200|Montserrat|Arvo|Open+Sans' rel='stylesheet' type='text/css'>
+
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://sosnader.tk/about/">
+  
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/slick-theme.css">
+
+  <link rel="canonical" href="http://sosnader.tk/projects/agency/">
   <link rel="alternate" type="application/rss+xml" title="Brenden Sosnader" href="http://sosnader.tk/feed.xml">
 
-  <link rel="icon" 
-      type="image/png" 
-      href="/favicon.ico">
+    <link rel="icon" 
+      type="image/ico" 
+      href="http://sosnader.tk/favicon.ico">
 </head>
 
 
@@ -82,20 +87,26 @@
       <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">About</h1>
+    <h1 class="post-title center">The Sosnader Agency, Inc.</h1>
   </header>
 
   <div class="post-content">
-    <p>This site was created using <a href="https://jekyllrb.com">Jekyll</a> and is being hosted (for free!) on <a href="https://pages.github.com">Github Pages</a>. The domain name was provided (again, for free!) by <a href="http://www.freenom.com">Freenom</a>.</p>
+    <p>I designed this website for a local business owner who wanted to attract more customers to his business. He wanted to be able to have pictures in a gallery so I added a dynamic photogallery for him. He also wanted to be able to post articles on his own so I included a content management system in PHP so he could add pages on his own. The website is dynamic and looks great on both mobile and desktop browsers. <a href="http://sosnaderagency.com" target="_blank">View it live here</a></p>
 
+
+<div class="slider">
+  <div><a href="/img/projects/agency.png"><img src="/img/projects/agency-min.png" alt="agency webpage" /></a></div>
+  <div><a href="/img/projects/agency1.png"><img src="/img/projects/agency1-min.png" alt="agency webpage" /></a></div>
+  <div><a href="/img/projects/agency2.png"><img src="/img/projects/agency2-min.png" alt="agency webpage" /></a></div>
+</div>
   </div>
 
 </article>
 
-</div>
-</div>
+    </div>
+  </div>
 
-<footer class="site-footer">
+  <footer class="site-footer">
 
   <div class="wrapper">
 
@@ -135,7 +146,17 @@
 
 </footer>
 
-
+  <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.slider').slick({
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+      });
+    });
+  </script>
 </body>
 
 </html>
