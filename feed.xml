@@ -6,9 +6,34 @@
 </description>
     <link>http://sosnader.tk/</link>
     <atom:link href="http://sosnader.tk/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 08 Feb 2017 22:13:13 -0500</pubDate>
-    <lastBuildDate>Wed, 08 Feb 2017 22:13:13 -0500</lastBuildDate>
+    <pubDate>Wed, 15 Feb 2017 19:43:22 -0500</pubDate>
+    <lastBuildDate>Wed, 15 Feb 2017 19:43:22 -0500</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Slaughterhouse-Five</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/img/posts/house.jpg&quot; alt=&quot;slaughterhouse five&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Slaughterhouse-Five, by Kurt Vonnegut, is a pretty cool book that I read last summer. I’m pretty sure it’s known as one of those “classic” books that everyone should read. And I’m not gonna lie, it’s a good book. It covers a fictional story about Billy Pilgrim, a chaplain’s assistant in World War II. It’s an anti war novel, so if you’ve read anything like &lt;em&gt;For Whom the Bell Tolls&lt;/em&gt; or &lt;em&gt;Catch-22&lt;/em&gt;, you know the type. It’s partially based off of Vonnegut’s own experiences during World War II.&lt;/p&gt;
+
+&lt;p&gt;But it is pretty good, and pretty interesting writing style. The story is told by an unreliable narrator who takes you through the story in a series of flashbacks. There’s some pretty crazy stuff involving aliens (or does it?) and overall the gritty tone accurately represents how World War II probably was for Vonnegut. The style and the confusing narrative only serve to further reinforce the idea of the confusion and terror felt while at war. I’ll admit, I’m still not entirely sure of the purpose of the aliens tangent, but maybe someone else more well versed with the book could explain it to me sometime.&lt;/p&gt;
+
+&lt;p&gt;I’ve always thought that anti-war novels are very important to have and to be shared. Too often it seems like war and violence is romanticized, and the terrible parts are glossed over in favor of excitement and action. We need books like these from those who have actually experienced war to remind us what it’s like. And I think this format is better than a  lecture on the topic, because it’s more entertaining and engaging. The skill of the writer allows us to feel more strongly about the horrible things happening in the book, in a way a lecture or documentary perhaps couldn’t.&lt;/p&gt;
+
+&lt;p&gt;I leave you with a quote (supposedly) from Robert E Lee:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It is well that war is so terrible — lest we should grow too fond of it.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Wed, 15 Feb 2017 00:00:00 -0500</pubDate>
+        <link>http://sosnader.tk/passion/2017/02/15/slaughterhouse-five.html</link>
+        <guid isPermaLink="true">http://sosnader.tk/passion/2017/02/15/slaughterhouse-five.html</guid>
+        
+        
+        <category>passion</category>
+        
+      </item>
     
       <item>
         <title>Maze Runner</title>
@@ -222,30 +247,6 @@ https://www.washingtonpost.com/news/wonk/wp/2014/06/03/this-computer-programmer-
         
         
         <category>rcl</category>
-        
-      </item>
-    
-      <item>
-        <title>Making a Webapp with AngularJS</title>
-        <description>&lt;p&gt;It hadn’t yet been a day since I’d been home for winter break, and I already had grown bored of just sitting around. Sure, we all dream of the promised land after the semester is over, where there are no responsibilities and no homework, and where finals are nothing but a faint memory in our heads, but in reality, it gets old, fast.&lt;/p&gt;
-
-&lt;p&gt;Speaking of finals, though, there’s a peculiar phenonenom the seems to occur during the last week or so of the semester—college students, instead of studying, will inevitably spend all of their free time calculating the lowest possible grade they can get on their finals to still get the grade they want in their classes. I’m not immune to it myself—it’s fun, and quite frankly relieving, to discover you only need a 65% on your CS final to get an A in the course. And if you look online, you’ll find there’s plenty of websites that do the calculations for you. I decided to make one too.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;I wanted to cure my boredom and learn at the same time, so I decided to make it using something I haven’t really had experience with before: &lt;a href=&quot;https://angular.io&quot;&gt;AngularJS&lt;/a&gt;. Although this idea has been done plenty of times before, I thought it would be a nice way to experiment with AngularJS. You can find the finished project &lt;a href=&quot;http://sosnader.tk/grade-calc&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I faced a few challenges in getting this project up and running, but all in all it only took me the better part of a Sunday afternoon. The biggest challenge that I had to overcome was to actually figure out how AngularJS worked. I had really never touched any sort of Javascript framework before this point and I didn’t really understand the concept. After going through some tutorials and example code on the AngularJS website, I felt ready enough to tackle the project.&lt;/p&gt;
-
-&lt;p&gt;The Angular team makes it really easy to get a project up and running with the &lt;a href=&quot;https://cli.angular.io/&quot;&gt;angular-cli&lt;/a&gt; tool. After running their setup, all I had to do was configure a few components, set up my form and calculations, and apply some styles. It’s pretty barebones, but it got me to learn the basics of what AngularJS is all about, and I’m excited to be be able to use its tools in future projects.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://sosnader.tk/grade-calc&quot;&gt;&lt;img src=&quot;/img/posts/grade.png&quot; alt=&quot;grade app screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 18 Dec 2016 00:00:00 -0500</pubDate>
-        <link>http://sosnader.tk/technology/2016/12/18/making-a-webapp-with-angularjs.html</link>
-        <guid isPermaLink="true">http://sosnader.tk/technology/2016/12/18/making-a-webapp-with-angularjs.html</guid>
-        
-        
-        <category>technology</category>
         
       </item>
     
