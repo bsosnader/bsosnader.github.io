@@ -6,9 +6,141 @@
 </description>
     <link>http://sosnader.tk/</link>
     <atom:link href="http://sosnader.tk/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 13 Apr 2017 16:09:20 -0400</pubDate>
-    <lastBuildDate>Thu, 13 Apr 2017 16:09:20 -0400</lastBuildDate>
+    <pubDate>Sun, 16 Apr 2017 23:25:29 -0400</pubDate>
+    <lastBuildDate>Sun, 16 Apr 2017 23:25:29 -0400</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Visualizing Penn State&#39;s Daily Gym Attendance</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/img/posts/gym.jpg&quot; alt=&quot;white building &quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you’re a Penn State student who likes to exercise, you know that the three on-campus gyms can get &lt;em&gt;really&lt;/em&gt; crowded. It sometimes seems like you have to get there immediately at opening time if you want to get a peaceful, uninterrupted workout in. It’s to be expected–although three gyms is a lot, 46,000 students is even more. The University recognizes that this can be a problem, and takes a count of students entering and exiting each gym, uploading it to a &lt;a href=&quot;https://studentaffairs.psu.edu/CurrentFitnessAttendance/&quot;&gt;really neat webapp&lt;/a&gt; where you can see how crowded each gym is. But that doesn’t really help you plan–you can only see what’s happening in the moment. Sure, eventually if you check it enough you get used to knowing when the crowds come and go, but it’d be a lot more useful (and interesting) to see attendance charted over time. So when my friend Ally suggested the idea to me, I decided to do just that. 
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;breaking-it-down&quot;&gt;Breaking it down&lt;/h1&gt;
+
+&lt;p&gt;I expected this to be a fairly large project, so I had to separate it into manageable chunks. I decided to work on actually obtaining the data first, and left the front-end visualization for later. I knew I’d need to store it in some kind of database as well, but I had to figure out how to actually &lt;em&gt;get&lt;/em&gt; the data I wanted.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-scraper&quot;&gt;The Scraper&lt;/h1&gt;
+
+&lt;p&gt;The first thing I tried was looking in the source code for any clues as to how the page was getting its data. I quickly found the &lt;a href=&quot;https://studentaffairs.psu.edu/CurrentFitnessAttendance/api/CounterAPI&quot;&gt;API link&lt;/a&gt;, but, unfortunately, it wouldn’t let me access it. Next, I tried to use the python module &lt;a href=&quot;https://www.crummy.com/software/BeautifulSoup/&quot;&gt;beautifulsoup&lt;/a&gt; to scrape and parse the html. That didn’t work either, for an obvious reason–the page was rendered using javascript, and beautifulsoup alone can’t get the javascript-rendered html–it can only get the basic html which didn’t have the values I wanted.&lt;/p&gt;
+
+&lt;p&gt;Instead, I had to set up a headless browser using selenium and phantomJS in my python browser. What the headless browser does is basically go to the webpage and pretend to be a regular browser, like Chrome, so that the page will render its javascript. Then you can pass the rendered html over to beautifulsoup and commence the parsing. The code is super simple, too:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;http://example.com&#39;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PhantomJS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page_source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;html.parser&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Then you can use the soup object to extract whatever data you need, and you’re set! You just need to make sure you have phantomJS installed.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install phantomjs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Also make sure to include the proper imports at the top of the python file:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bs4&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;You’ll probably want regex as well:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;So now that I had a reliable way of scraping data from the website, I needed to figure out how to store it.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-database&quot;&gt;The Database&lt;/h1&gt;
+
+&lt;p&gt;The selection of a databse for this project was actually something that took me a bit of time to consider. I couldn’t really use a regular relational database because it didn’t make much sense. It’s not like I’m storing lists of users, where each row is a distinct user with distinct fields. I really only have three distinct ‘things’–the three gyms. Each gym has attendance values and a timestamp associated with that value. For that kind of setup, a time series database should be used. Time series databases are built for this exact scenario and make it easy to organize the data.&lt;/p&gt;
+
+&lt;p&gt;I chose to use &lt;a href=&quot;https://www.influxdata.com/&quot;&gt;InfluxDB&lt;/a&gt; because it was free, had good documentation, and seemed to have all the features I was looking for without being unnecessarily complex or bloated. It has extensive libraries for many languages, and it was really easy to link to python. All I had to do was convert my html from earlier to a JSON format dict and use it in the following code:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;localhost&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8086&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;user&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;password&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;dbname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;name&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;json_body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;format_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# this is my function from the scraper class&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;InfluxDBClient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_database&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dbname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_retention_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;policy_name&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;7d&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write_points&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json_body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argparse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;example code to play with InfluxDB&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;--host&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;localhost&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;hostname of InfluxDB http API&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;--port&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8086&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;port of InfluxDB http API&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;__main__&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I got all of that working on my laptop, and now had a python script I could run to consistently add data to the database. The next step was getting data in regular intervals. I needed to set up a server.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-server&quot;&gt;The Server&lt;/h1&gt;
+
+&lt;p&gt;As a cheap college student, I never want to spend money if I don’t absolutely have to. For instance, this website is hosted by &lt;a href=&quot;https://pages.github.com/&quot;&gt;github pages&lt;/a&gt; entirely for free, as is my &lt;a href=&quot;http://sosnader.tk/grade-calc/&quot;&gt;Grade Calculator&lt;/a&gt; project. But, github pages is just a simple static host for frontend content. I needed a real machine to run my database on.&lt;/p&gt;
+
+&lt;p&gt;Before making the jump to buying a VPS though, I first pulled out my dusty old Raspberry Pi Model A. After a &lt;em&gt;lot&lt;/em&gt; of tweaking and fiddling, I got the database set up on a headless installation of raspbian. There’s not too much to talk about here. After installing InfluxDB, Python 3, and all their respective dependencies, I added a simple cron job add data every ten minutes.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/10 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; bash -l -c &lt;span class=&quot;s1&quot;&gt;&#39;/home/brenden/psu-fitness/database.py&#39;&lt;/span&gt; &amp;gt;&amp;gt; /home/brenden/logs/cron.log 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Once I verified that my setup was working correctly, I grabbed a server from &lt;a href=&quot;https://www.vultr.com/&quot;&gt;Vultr&lt;/a&gt; and replicated my setup. Originally, I planned on only hosting the database in the VPS, and putting the front end on github pages. However, I figured since I already had the server I might as well use it as the web server as well. I’ve never configured my own web server from scratch before anyway, so I viewed it as a new challenge.&lt;/p&gt;
+
+&lt;p&gt;Configuration was actually super easy. I installed nginx and set up a configuration file. The config file had two key parts. The first part told the server where to look to find the html files to serve to port 80. THe second part told the server where to look if someone queried the database, which, for InfluxDB, takes the form of:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://servername:8086/query?your-query-here
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;I didn’t want to have that silly 8086 there so I set up a reverse proxy to point any requests to&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://servername/query
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;to port 8086 and to the database. InfluxDB has some basic authentication built in, and I’m not too worried about anyone hacking into my database. They wouldn’t find anything anyway, and I took enough basic steps I feel to stop any bot or casual hacker from doing something they shouldn’t.&lt;/p&gt;
+
+&lt;p&gt;Speaking of security, I also decided to add SSL support to the site. I was expecting this to be a huge hassle, but luckily &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt; offers a super painless way to set up SSL support on a web server. I just had to change my nginx configuration file a little bit and run the tool that Let’s Encrypt supplies and I was good to go.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-front-end&quot;&gt;The Front End&lt;/h1&gt;
+
+&lt;p&gt;The final part of this challenge was the front end. I wanted to go barebones this time–I didn’t think I needed any sort of Angular framework or the like. I just wanted a simple page to display the graph and some info and nothing else. &lt;a href=&quot;http://chartjs.org&quot;&gt;ChartJS&lt;/a&gt; is a great, simple JavaScript charting library that I was easily able to adapt to my purposes. After whipping a few styles together along with the &lt;a href=&quot;http://getskeleton.com&quot;&gt;Skeleton CSS Framework&lt;/a&gt; (a new favorite of mine), the site was finally ready to deploy! You can view it at &lt;a href=&quot;https://fitnessdb.tk&quot;&gt;https://fitnessdb.tk&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-i-learned&quot;&gt;What I Learned&lt;/h1&gt;
+
+&lt;p&gt;This project took a few weeks of my time, but the efforts were more than worth it. Not only did I create something that’s sorta cool, I also learned a ton about a bunch of different technologies in the process. I got a &lt;em&gt;lot&lt;/em&gt; more comfortable with databases than I have been in the past. I really had never used or configured a database up until this point, and this project was a great way to learn in a hands on approach.&lt;/p&gt;
+
+&lt;p&gt;I also got better with using external Python and JavaScript libraries. Documentation can often be sparse and unreadable, and I definitely learned how to adapt and twist things to do what I wanted them to do.&lt;/p&gt;
+
+&lt;p&gt;Funnily enough, I think what I learned the &lt;em&gt;most&lt;/em&gt; about through this project was the linux shell. I had to use it extensively to configure the servers, run commands, and test things. I got far more comfortable with it than I had been before, and I think those skills will really help my productivity in the future.&lt;/p&gt;
+
+&lt;p&gt;Anyway, that’s all! I’m pretty sure no one will ever read this other than me, so that’s kind of sad. But hey, it’s good to write out my steps and process to help me remember how I did it and to document it for the future.&lt;/p&gt;
+
+&lt;p&gt;Until next time!&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 13 Apr 2017 00:00:00 -0400</pubDate>
+        <link>http://sosnader.tk/technology/2017/04/13/visualizing-penn-states-gym-attendance.html</link>
+        <guid isPermaLink="true">http://sosnader.tk/technology/2017/04/13/visualizing-penn-states-gym-attendance.html</guid>
+        
+        
+        <category>technology</category>
+        
+      </item>
     
       <item>
         <title>The Martian</title>
@@ -262,35 +394,6 @@ http://www.government-and-constitution.org/history-us-political-parties/timeline
         
         
         <category>passion</category>
-        
-      </item>
-    
-      <item>
-        <title>Deliberation Reflection</title>
-        <description>&lt;p&gt;My experience at a deliberation was very positive. On Monday, I went to a deliberation on sexual assault in college in a place called “CommonPlace.” It was super cozy, with couches and futons galore. This was in stark contrast to our own deliberation, which was on the third floor of a church in a bleak and forboding space. Regardless, we sat down, and the deliberation began.&lt;/p&gt;
-
-&lt;p&gt;The audience was completely comprised of college students. I wasn’t exactly surpised by that, but I was kind of hoping to see more adults taking part. There was only one student &lt;em&gt;not&lt;/em&gt; in an RCL class there, which also was not that surprising, but again, I was kind of hoping for a greater variety.&lt;/p&gt;
-
-&lt;p&gt;Sexual assalt is a delicate topic, and I was worried that this group might make a few slip ups in their explanaiton and introduction to the topic. However, I thought they did a pretty good job of explaining the issue and kicking off the discussion. Another thing I was worried about was that nobody would want to participate. That wasn’t the case as well. Everyone had a lot to say, and a lot to talk about.&lt;/p&gt;
-
-&lt;p&gt;The group did really well with their amount of questions, and finding good follow up questions to keep the conversation going. I think that’s one of the hardest parts of completing a successful deliberation, because when the discussion dies down, it gets &lt;em&gt;really&lt;/em&gt; awkward.&lt;/p&gt;
-
-&lt;p&gt;The main approaches that we discussed involved three different things: approaching sexaul assault education at a younger level, providing more education and support at the university level, or increasing punishments and awareness of punishments. I think most people, myself included, thought the best approach would involve more education at a younger level. However, there’s definitely issues with implementing that, for instance, in areas (like the SOUTH) where this type of sexual education doesn’t fly.&lt;/p&gt;
-
-&lt;p&gt;The second approach involved better education in the university setting. We all agreed that the Penn State programs like SAFE/AWARE aren’t that effective because people who don’t care can just ignore them. Also, programs that other universities have aren’t that effective either because they’re ususally opt-in, and those who are most likely to opt in are the ones least likely to commit sexual assualt in the first place.&lt;/p&gt;
-
-&lt;p&gt;The final approach involved increasing punishments and increasing awareness of punishments in an attempt to deter would-be assualters. A really good point was brought up that I hadn’t thought of before– that increasing punishments might actually lead to &lt;em&gt;less&lt;/em&gt; reporting by victims. Often, sexual assault attackers are known to the victim, and unfortunately, victims feel bad sometimes about “turning in” their attacker to face punishment.&lt;/p&gt;
-
-&lt;p&gt;One of the big things I thought was important to discuss was how to properly educate people on the concept of consent. If everyone had a very clear, very strong defintion of consent, I think it would help this issue greatly. There are a lot of shitty people out there who do things and don’t think they’re doing anything wrong. However, if we had a really clear concept of consent firmly ingrained in everyone’s mind that it would help shame people into not doing these sorts of things.&lt;/p&gt;
-
-&lt;p&gt;Overall, I thought it was a really good deliberation with a lot of productive discussion that led to me thinking about some things I hadn’t thought about before.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 23 Feb 2017 00:00:00 -0500</pubDate>
-        <link>http://sosnader.tk/rcl/2017/02/23/deliberation-reflection.html</link>
-        <guid isPermaLink="true">http://sosnader.tk/rcl/2017/02/23/deliberation-reflection.html</guid>
-        
-        
-        <category>rcl</category>
         
       </item>
     
