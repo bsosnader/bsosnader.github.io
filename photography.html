@@ -6,17 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Slaughterhouse-Five</title>
-  <meta name="description" content="Slaughterhouse-Five, by Kurt Vonnegut, is a pretty cool book that I read last summer. I’m pretty sure it’s known as one of those “classic” books that everyon...">
+  <title>Photography</title>
+  <meta name="description" content="Hi, I'm Brenden Sosnader. I'm a freshman studying computer science and statistics at the Schreyer Honors College at Penn State.
+">
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:200|Montserrat|Arvo|Open+Sans' rel='stylesheet' type='text/css'>
+
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://sosnader.tk/passion/2017/02/15/slaughterhouse-five.html">
+  
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/slick-theme.css">
+
+  <link rel="canonical" href="http://sosnader.tk/photography">
   <link rel="alternate" type="application/rss+xml" title="Brenden Sosnader" href="http://sosnader.tk/feed.xml">
 
-  <link rel="icon" 
-      type="image/png" 
-      href="/favicon.ico">
+    <link rel="icon" 
+      type="image/ico" 
+      href="http://sosnader.tk/favicon.ico">
 </head>
 
 
@@ -96,50 +102,31 @@
 
   <div class="page-content">
     <div class="wrapper">
-      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <article class="post">
 
-	<header class="post-header">
-		<h1 class="post-title" itemprop="name headline">Slaughterhouse-Five</h1>
-		<p class="post-meta"><time datetime="2017-02-15T00:00:00-05:00" itemprop="datePublished">Feb 15, 2017</time><br><span>categories: passion</span></p>
-	</header>
+  <header class="post-header">
+    <h1 class="post-title center">Photography</h1>
+  </header>
 
-	<div class="post-content" itemprop="articleBody">
-		<p><img src="/img/posts/house.jpg" alt="slaughterhouse five" /></p>
+  <div class="post-content">
+    <p>Here you'll find some pictures that I've taken. I use a Pentax K1000 with 35mm film.</p>
 
-<p>Slaughterhouse-Five, by Kurt Vonnegut, is a pretty cool book that I read last summer. I’m pretty sure it’s known as one of those “classic” books that everyone should read. And I’m not gonna lie, it’s a good book. It covers a fictional story about Billy Pilgrim, a chaplain’s assistant in World War II. It’s an anti war novel, so if you’ve read anything like <em>For Whom the Bell Tolls</em> or <em>Catch-22</em>, you know the type. It’s partially based off of Vonnegut’s own experiences during World War II.</p>
 
-<p>But it is pretty good, and pretty interesting writing style. The story is told by an unreliable narrator who takes you through the story in a series of flashbacks. There’s some pretty crazy stuff involving aliens (or does it?) and overall the gritty tone accurately represents how World War II probably was for Vonnegut. The style and the confusing narrative only serve to further reinforce the idea of the confusion and terror felt while at war. I’ll admit, I’m still not entirely sure of the purpose of the aliens tangent, but maybe someone else more well versed with the book could explain it to me sometime.</p>
+<div class="slider">
+  <div><img src="/img/photography/1-min.jpg" alt="photograph" /></div>
+  <div><img src="/img/photography/2-min.jpg" alt="photograph" /></div>
+  <div><img src="/img/photography/3-min.jpg" alt="photograph" /></div>
+  <div><img src="/img/photography/4-min.jpg" alt="photograph" /></div>
 
-<p>I’ve always thought that anti-war novels are very important to have and to be shared. Too often it seems like war and violence is romanticized, and the terrible parts are glossed over in favor of excitement and action. We need books like these from those who have actually experienced war to remind us what it’s like. And I think this format is better than a  lecture on the topic, because it’s more entertaining and engaging. The skill of the writer allows us to feel more strongly about the horrible things happening in the book, in a way a lecture or documentary perhaps couldn’t.</p>
-
-<p>I leave you with a quote (supposedly) from Robert E Lee:</p>
-
-<blockquote>
-  <p>It is well that war is so terrible — lest we should grow too fond of it.</p>
-</blockquote>
-
-	</div>
-	
+</div>
+  </div>
 
 </article>
-<div id="disqus_thread"></div>
-<script>
-	var disqus_config = function () {
-            this.page.url = page.url;  // Replace PAGE_URL with your page's canonical URL variable
-        //this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    (function() { // DON'T EDIT BELOW THIS LINE
-    	var d = document, s = d.createElement('script');
-    	s.src = '//sosnader-tk.disqus.com/embed.js';
-    	s.setAttribute('data-timestamp', +new Date());
-    	(d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-</div>
 
-<footer class="site-footer">
+    </div>
+  </div>
+
+  <footer class="site-footer">
 
   <div class="wrapper">
 
@@ -179,7 +166,20 @@
 
 </footer>
 
-
+  <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.slider').slick({
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+      });
+    });
+    $("body").on("contextmenu", "img", function(e) {
+  return false;
+});
+  </script>
 </body>
 
 </html>
