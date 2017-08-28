@@ -2,16 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Brenden Sosnader</title>
-    <description>Hi, I&#39;m Brenden Sosnader. I&#39;m a freshman studying computer science and statistics at the Schreyer Honors College at Penn State.
+    <description>Hi, I'm Brenden Sosnader. I'm a student studying computer science and statistics at the Schreyer Honors College at Penn State.
 </description>
     <link>http://sosnader.tk/</link>
     <atom:link href="http://sosnader.tk/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 27 Apr 2017 11:07:45 -0400</pubDate>
-    <lastBuildDate>Thu, 27 Apr 2017 11:07:45 -0400</lastBuildDate>
-    <generator>Jekyll v3.1.6</generator>
+    <pubDate>Sun, 27 Aug 2017 20:08:54 -0400</pubDate>
+    <lastBuildDate>Sun, 27 Aug 2017 20:08:54 -0400</lastBuildDate>
+    <generator>Jekyll v3.4.3</generator>
     
       <item>
-        <title>Visualizing Penn State&#39;s Daily Gym Attendance</title>
+        <title>My Summer Internship</title>
+        <description>&lt;p&gt;This summer, I had the pleasure of working at HighPoint Solutions in their Outsourcing department. The entire summer I was working on a project they assigned to one other intern and me.&lt;/p&gt;
+
+&lt;p&gt;The project was a pretty cool and unique one. Since HighPoint is consulting company, they have to fill out a lot of Request For Proposal (RFP) documents to send to prospective clients. RFPs are basically a list of questions a company will send to other companies who want to help them outsource something. The other companies fill out their answers to these questions and send them back, and then there’s a bidding process which ultimately ends in one particular company being selected for the outsourcing (in our case, hopefully HighPoint!).&lt;/p&gt;
+
+&lt;p&gt;As you might imagine, a large amount of these questions end up being very similar from company to company. HighPoint wanted a way to easily search for questions from past RFP documents that contained similar keywords to questions they wanted to answer. Previously, their only way of doing this would be to open each individual RFP document and search for the questions/keywords on a document by document basis. What the envisioned was a search bar where they could copy and paste a question, and get a list of previous questions and answers similar to that question, along with some metadata tags, like what original document it came from, or the date it was submitted.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Our managers gave us pretty much free reign to build whatever we wanted, as long as it had the functional specs they were looking for. The first thing we did on our own was separate the project into the three distinct parts that seemed clear to us. First, we knew we needed to make some sort of parser that could extract the questions and answers from RFP documents. Second, we needed a way to store those entries in a way that was easily searchable. Finally, we needed a UI that wrapped everything together and allowed for searching and uploading of documents.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-parser&quot;&gt;The parser&lt;/h1&gt;
+
+&lt;p&gt;The parser was written in Java, mainly because we wanted to use &lt;a href=&quot;https://poi.apache.org/&quot;&gt;Apache POI&lt;/a&gt;, a really good API for parsing Microsoft documents. We figured the simplest way to extract the data was to have users highlight questions, and color answers red. This way, the parser could easily pair them together. We put the parser on a Java servlet which accepted http POST requests containing metadata tags and the document.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-database&quot;&gt;The database&lt;/h1&gt;
+
+&lt;p&gt;SQL Databases are great for a lot of things, but fast full-text search isn’t really one of them. For that, we needed a search engine, something that could index the text really well and allow for fast and complex queries to be made to our text. &lt;a href=&quot;elastic.co&quot;&gt;Elasticsearch&lt;/a&gt; fit the bill while also being open source and well-documented (big relief). Elasticsearch is a search engine built on top of Apache Lucene that is truly fantastic– it had all of the features I needed to easily filter and manipulate the data and was fast and easy to learn.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-front-end&quot;&gt;The front-end&lt;/h1&gt;
+
+&lt;p&gt;When thinking about what to use for the web front-end, I thought a lot about what we needed to be able to do and display. I knew that there would be a lot of API calls and HTTP GET / POST requests, as well as a need for dynamic results, options, and forms. &lt;a href=&quot;http://angular.io/&quot;&gt;Angular&lt;/a&gt;, which I’ve worked with a little bit before, seemed to be well-suited to the task. And it really, really was. From the pipes allowing me to easily separate and display what data Elasticsearch gave me, to the modularity of the components and the sensibility of using services, Angular really let us do everything we wanted to.&lt;/p&gt;
+
+&lt;h1 id=&quot;putting-it-all-together&quot;&gt;Putting it all together&lt;/h1&gt;
+
+&lt;p&gt;Once we had these components all working, it was time to put them together and deploy them for production use. We put the Java servlet and the web front-end on an Apache Tomcat web server (it amazes me how many different libraries and products Apache has), and the ES instance on its own platform. There were a few tricky things here, like linking up Tomcat with the company’s domain controller to authenticate users in Active Directory, but otherwise this part went smoothly. We were working pretty much up until the last few days, which were then spent making sure everything was well documented and ready to be passed on.&lt;/p&gt;
+
+&lt;h1 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h1&gt;
+
+&lt;p&gt;Overall, the internship was a ton of fun and exposed me to the real world of software development. We were given functional specs for a project, and had to accomplish our goals while being involved in regular meetings and updates on our progress. We had to adhere to company restrictions and policies for building software, and had to make sure our project was what the company really needed. At the end of the summer, the Senior Vice President of our department said it was the best intern project he’d ever seen, which was incredible to hear.&lt;/p&gt;
+
+&lt;p&gt;Below is a screenshot of a search result from the app. It looks simple, but the work that went into making it happen was much more than simple.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/posts/blurry.png&quot; alt=&quot;app image&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 21 Aug 2017 00:00:00 -0400</pubDate>
+        <link>http://sosnader.tk/technology/2017/08/21/my-summer-internship.html</link>
+        <guid isPermaLink="true">http://sosnader.tk/technology/2017/08/21/my-summer-internship.html</guid>
+        
+        
+        <category>technology</category>
+        
+      </item>
+    
+      <item>
+        <title>Visualizing Penn State's Daily Gym Attendance</title>
         <description>&lt;p&gt;&lt;img src=&quot;/img/posts/gym.jpg&quot; alt=&quot;white building &quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;If you’re a Penn State student who likes to exercise, you know that the three on-campus gyms can get &lt;em&gt;really&lt;/em&gt; crowded. It sometimes seems like you have to get there immediately at opening time if you want to get a peaceful, uninterrupted workout in. It’s to be expected–although three gyms is a lot, 46,000 students is even more. The University recognizes that this can be a problem, and takes a count of students entering and exiting each gym, uploading it to a &lt;a href=&quot;https://studentaffairs.psu.edu/CurrentFitnessAttendance/&quot;&gt;really neat webapp&lt;/a&gt; where you can see how crowded each gym is. But that doesn’t really help you plan–you can only see what’s happening in the moment. Sure, eventually if you check it enough you get used to knowing when the crowds come and go, but it’d be a lot more useful (and interesting) to see attendance charted over time. So when my friend Ally suggested the idea to me, I decided to do just that. 
@@ -27,7 +71,7 @@
 
 &lt;p&gt;Instead, I had to set up a headless browser using selenium and phantomJS in my python browser. What the headless browser does is basically go to the webpage and pretend to be a regular browser, like Chrome, so that the page will render its javascript. Then you can pass the rendered html over to beautifulsoup and commence the parsing. The code is super simple, too:&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;http://example.com&#39;&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'http://example.com'&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PhantomJS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page_source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;html.parser&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -58,30 +102,30 @@
 
 &lt;p&gt;I chose to use &lt;a href=&quot;https://www.influxdata.com/&quot;&gt;InfluxDB&lt;/a&gt; because it was free, had good documentation, and seemed to have all the features I was looking for without being unnecessarily complex or bloated. It has extensive libraries for many languages, and it was really easy to link to python. All I had to do was convert my html from earlier to a JSON format dict and use it in the following code:&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;localhost&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8086&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;user&#39;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;password&#39;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;dbname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;name&#39;&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'localhost'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8086&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'user'&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'password'&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;dbname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'name'&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;json_body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;format_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# this is my function from the scraper class&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;InfluxDBClient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_database&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dbname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-    &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_retention_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;policy_name&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;7d&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_retention_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'policy_name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'7d'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write_points&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json_body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argparse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;example code to play with InfluxDB&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;--host&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;localhost&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                        &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;hostname of InfluxDB http API&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;--port&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8086&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                        &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;port of InfluxDB http API&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'example code to play with InfluxDB'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'--host'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'localhost'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'hostname of InfluxDB http API'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'--port'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8086&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'port of InfluxDB http API'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;__main__&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'__main__'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
@@ -95,7 +139,7 @@
 
 &lt;p&gt;Before making the jump to buying a VPS though, I first pulled out my dusty old Raspberry Pi Model A. After a &lt;em&gt;lot&lt;/em&gt; of tweaking and fiddling, I got the database set up on a headless installation of raspbian. There’s not too much to talk about here. After installing InfluxDB, Python 3, and all their respective dependencies, I added a simple cron job add data every ten minutes.&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/10 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; bash -l -c &lt;span class=&quot;s1&quot;&gt;&#39;/home/brenden/psu-fitness/database.py&#39;&lt;/span&gt; &amp;gt;&amp;gt; /home/brenden/logs/cron.log 2&amp;gt;&amp;amp;1
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/10 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; bash -l -c &lt;span class=&quot;s1&quot;&gt;'/home/brenden/psu-fitness/database.py'&lt;/span&gt; &amp;gt;&amp;gt; /home/brenden/logs/cron.log 2&amp;gt;&amp;amp;1
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -372,25 +416,6 @@ http://www.government-and-constitution.org/history-us-political-parties/timeline
         <pubDate>Thu, 02 Mar 2017 00:00:00 -0500</pubDate>
         <link>http://sosnader.tk/passion/2017/03/02/discworld.html</link>
         <guid isPermaLink="true">http://sosnader.tk/passion/2017/03/02/discworld.html</guid>
-        
-        
-        <category>passion</category>
-        
-      </item>
-    
-      <item>
-        <title>Naked Economics</title>
-        <description>&lt;p&gt;Today we’re gonna take a different track than the normal fiction books I’ve been writing about. Instead, I’m gonna talk about a book that I sincerely believe everyone should read for the purpose of their own education. It’s called &lt;em&gt;Naked Economics&lt;/em&gt;, by Charles Wheelan.&lt;/p&gt;
-
-&lt;p&gt;At first glance, you might be horrified at the prospect of reading a book about Econ. Economics gets a bad rap as a terrible subject, but it can actually be very interesting, if approached right. It’s also incredibly important (in my opinion) for everyone to have a basic grasp of economics, because, after all, money is what makes the world go round. We deal with and hear about economic issues every day of our live, yet many people just don’t understand what’s going on. And it’s not entirely their fault–it’s true that economics can be a dense and inaccessible topic.&lt;/p&gt;
-
-&lt;p&gt;However, this book is not that. It’s easy to read, enjoyable, and has great explanations on a variety of topics related to economics. It looks at all sorts of situations around the world and explains the economics behind them. My eyes were opened to a lot of new perspectives and things I hadn’t even thought about. While this won’t make you an expert, it will definitely help explain a bit of what goes on in the world around you, at least economically.&lt;/p&gt;
-
-&lt;p&gt;Like I said, I really do think everyone should read this book. In an ideal world, everyone would be able to take several in-depth economics classes to get a better, fuller understanding of the topic, but this book is a good start. Definitely think about checking it out if you’re in the mood for a nonfiction book and for some self edification. Also, if you really want, you can read his follow up book: &lt;em&gt;Naked Statistics.&lt;/em&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 23 Feb 2017 00:00:00 -0500</pubDate>
-        <link>http://sosnader.tk/passion/2017/02/23/naked-economics.html</link>
-        <guid isPermaLink="true">http://sosnader.tk/passion/2017/02/23/naked-economics.html</guid>
         
         
         <category>passion</category>
