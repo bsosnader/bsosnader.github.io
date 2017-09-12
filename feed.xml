@@ -6,8 +6,8 @@
 </description>
     <link>http://sosnader.tk/</link>
     <atom:link href="http://sosnader.tk/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Aug 2017 14:03:49 -0400</pubDate>
-    <lastBuildDate>Tue, 29 Aug 2017 14:03:49 -0400</lastBuildDate>
+    <pubDate>Tue, 12 Sep 2017 10:48:05 -0400</pubDate>
+    <lastBuildDate>Tue, 12 Sep 2017 10:48:05 -0400</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -58,7 +58,7 @@
         <title>Visualizing Penn State's Daily Gym Attendance</title>
         <description>&lt;p&gt;&lt;img src=&quot;/img/posts/gym.jpg&quot; alt=&quot;white building &quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;If you’re a Penn State student who likes to exercise, you know that the three on-campus gyms can get &lt;em&gt;really&lt;/em&gt; crowded. It sometimes seems like you have to get there immediately at opening time if you want to get a peaceful, uninterrupted workout in. It’s to be expected–although three gyms is a lot, 46,000 students is even more. The University recognizes that this can be a problem, and takes a count of students entering and exiting each gym, uploading it to a &lt;a href=&quot;https://studentaffairs.psu.edu/CurrentFitnessAttendance/&quot;&gt;really neat webapp&lt;/a&gt; where you can see how crowded each gym is. But that doesn’t really help you plan–you can only see what’s happening in the moment. Sure, eventually if you check it enough you get used to knowing when the crowds come and go, but it’d be a lot more useful (and interesting) to see attendance charted over time. So when my friend Ally suggested the idea to me, I decided to do just that. 
+&lt;p&gt;If you’re a Penn State student who likes to exercise, you know that the three on-campus gyms can get &lt;em&gt;really&lt;/em&gt; crowded. It sometimes seems like you have to get there immediately at opening time if you want to get a peaceful, uninterrupted workout in. It’s to be expected–although three gyms is a lot, 46,000 students is even more. The University recognizes that this can be a problem, and takes a count of students entering and exiting each gym, uploading it to a &lt;a href=&quot;https://studentaffairs.psu.edu/CurrentFitnessAttendance/&quot;&gt;really neat webapp&lt;/a&gt; where you can see how crowded each gym is. But that doesn’t really help you plan–you can only see what’s happening in the moment. Sure, eventually if you check it enough you get used to knowing when the crowds come and go, but it’d be a lot more useful (and interesting) to see attendance charted over time. So I decided to do just that.
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;breaking-it-down&quot;&gt;Breaking it down&lt;/h1&gt;
@@ -175,7 +175,6 @@
 &lt;p&gt;Anyway, that’s all! I’m pretty sure no one will ever read this other than me, so that’s kind of sad. But hey, it’s good to write out my steps and process to help me remember how I did it and to document it for the future.&lt;/p&gt;
 
 &lt;p&gt;Until next time!&lt;/p&gt;
-
 </description>
         <pubDate>Thu, 13 Apr 2017 00:00:00 -0400</pubDate>
         <link>http://sosnader.tk/technology/2017/04/13/visualizing-penn-states-gym-attendance.html</link>
