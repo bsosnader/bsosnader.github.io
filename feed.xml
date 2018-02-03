@@ -6,9 +6,9 @@
 </description>
     <link>http://sosnader.tk/</link>
     <atom:link href="http://sosnader.tk/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 12 Sep 2017 18:35:44 -0400</pubDate>
-    <lastBuildDate>Tue, 12 Sep 2017 18:35:44 -0400</lastBuildDate>
-    <generator>Jekyll v3.4.3</generator>
+    <pubDate>Sat, 03 Feb 2018 14:22:19 -0500</pubDate>
+    <lastBuildDate>Sat, 03 Feb 2018 14:22:19 -0500</lastBuildDate>
+    <generator>Jekyll v3.7.0</generator>
     
       <item>
         <title>My Summer Internship</title>
@@ -71,28 +71,24 @@
 
 &lt;p&gt;Instead, I had to set up a headless browser using selenium and phantomJS in my python browser. What the headless browser does is basically go to the webpage and pretend to be a regular browser, like Chrome, so that the page will render its javascript. Then you can pass the rendered html over to beautifulsoup and commence the parsing. The code is super simple, too:&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'http://example.com'&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'http://example.com'&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PhantomJS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page_source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;html.parser&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Then you can use the soup object to extract whatever data you need, and you’re set! You just need to make sure you have phantomJS installed.&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install phantomjs
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;phantomjs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Also make sure to include the proper imports at the top of the python file:&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bs4&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;You’ll probably want regex as well:&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;So now that I had a reliable way of scraping data from the website, I needed to figure out how to store it.&lt;/p&gt;
 
@@ -102,7 +98,7 @@
 
 &lt;p&gt;I chose to use &lt;a href=&quot;https://www.influxdata.com/&quot;&gt;InfluxDB&lt;/a&gt; because it was free, had good documentation, and seemed to have all the features I was looking for without being unnecessarily complex or bloated. It has extensive libraries for many languages, and it was really easy to link to python. All I had to do was convert my html from earlier to a JSON format dict and use it in the following code:&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'localhost'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8086&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'localhost'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8086&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'user'&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'password'&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;dbname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'name'&lt;/span&gt;
@@ -128,8 +124,7 @@
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'__main__'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;I got all of that working on my laptop, and now had a python script I could run to consistently add data to the database. The next step was getting data in regular intervals. I needed to set up a server.&lt;/p&gt;
 
@@ -139,22 +134,19 @@
 
 &lt;p&gt;Before making the jump to buying a VPS though, I first pulled out my dusty old Raspberry Pi Model A. After a &lt;em&gt;lot&lt;/em&gt; of tweaking and fiddling, I got the database set up on a headless installation of raspbian. There’s not too much to talk about here. After installing InfluxDB, Python 3, and all their respective dependencies, I added a simple cron job add data every ten minutes.&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/10 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; bash -l -c &lt;span class=&quot;s1&quot;&gt;'/home/brenden/psu-fitness/database.py'&lt;/span&gt; &amp;gt;&amp;gt; /home/brenden/logs/cron.log 2&amp;gt;&amp;amp;1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/10 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; bash &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'/home/brenden/psu-fitness/database.py'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /home/brenden/logs/cron.log 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Once I verified that my setup was working correctly, I grabbed a server from &lt;a href=&quot;https://www.vultr.com/&quot;&gt;Vultr&lt;/a&gt; and replicated my setup. Originally, I planned on only hosting the database in the VPS, and putting the front end on github pages. However, I figured since I already had the server I might as well use it as the web server as well. I’ve never configured my own web server from scratch before anyway, so I viewed it as a new challenge.&lt;/p&gt;
 
 &lt;p&gt;Configuration was actually super easy. I installed nginx and set up a configuration file. The config file had two key parts. The first part told the server where to look to find the html files to serve to port 80. THe second part told the server where to look if someone queried the database, which, for InfluxDB, takes the form of:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://servername:8086/query?your-query-here
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://servername:8086/query?your-query-here
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;I didn’t want to have that silly 8086 there so I set up a reverse proxy to point any requests to&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://servername/query
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://servername/query
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;to port 8086 and to the database. InfluxDB has some basic authentication built in, and I’m not too worried about anyone hacking into my database. They wouldn’t find anything anyway, and I took enough basic steps I feel to stop any bot or casual hacker from doing something they shouldn’t.&lt;/p&gt;
 
@@ -186,238 +178,100 @@
       </item>
     
       <item>
-        <title>The Martian</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/en/c/c3/The_Martian_2014.jpg&quot; alt=&quot;the martian&quot; /&gt;&lt;/p&gt;
+        <title>Making a Webapp with AngularJS</title>
+        <description>&lt;p&gt;It hadn’t yet been a day since I’d been home for winter break, and I already had grown bored of just sitting around. Sure, we all dream of the promised land after the semester is over, where there are no responsibilities and no homework, and where finals are nothing but a faint memory in our heads, but in reality, it gets old, fast.&lt;/p&gt;
 
-&lt;p&gt;This isn’t fantasy, and it’s not a romance novel, but what it &lt;em&gt;is…&lt;/em&gt; is &lt;strong&gt;very&lt;/strong&gt; good. &lt;em&gt;The Martian&lt;/em&gt; by Andy Weir is a book (big shocker there). If you only heard about or saw the movie, well, this is the book it was based off of. The movie, by the way, is pretty awesome and cool, but the book is also awesome, and more detailed than the movie was.&lt;/p&gt;
+&lt;p&gt;Speaking of finals, though, there’s a peculiar phenonenom the seems to occur during the last week or so of the semester—college students, instead of studying, will inevitably spend all of their free time calculating the lowest possible grade they can get on their finals to still get the grade they want in their classes. I’m not immune to it myself—it’s fun, and quite frankly relieving, to discover you only need a 65% on your CS final to get an A in the course. And if you look online, you’ll find there’s plenty of websites that do the calculations for you. I decided to make one too.
+&lt;!--more--&gt;&lt;/p&gt;
 
-&lt;p&gt;If you live under a rock and didn’t hear about the movie, then I’ll just tell you what the book is about. Basically, it’s 2035 and humans have sent a team of scientists to Mars, where they live on this little settlement. When it’s time to leave, there’s a huge dust storm and one of them gets left behind. He then has to figure out a way to survive for a &lt;em&gt;very&lt;/em&gt; long period of time on Mars without anyone to assist him.&lt;/p&gt;
+&lt;p&gt;I wanted to cure my boredom and learn at the same time, so I decided to make it using something I haven’t really had experience with before: &lt;a href=&quot;https://angular.io&quot;&gt;AngularJS&lt;/a&gt;. Although this idea has been done plenty of times before, I thought it would be a nice way to experiment with AngularJS. You can find the finished project &lt;a href=&quot;http://sosnader.tk/grade-calc&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;The book is thrilling and intense, and Weir does a good job of the very terrifying thought of being stranded on a different planet. The story is told through journal-like entries from the main character, along with action scenes from Earth. It’s a really fun read, because the main character is so lighthearted and snarky about his situation. Another cool thing is that the science of the book (and the film) is relatively realistic. There are some glaring errors and things that are ignored, but for the most part, nothing in the book (or movie) will make you say, “No, that isn’t possible.” Especially because it’s in the future, so, you can explain away a few things with that.&lt;/p&gt;
+&lt;p&gt;I faced a few challenges in getting this project up and running, but all in all it only took me the better part of a Sunday afternoon. The biggest challenge that I had to overcome was to actually figure out how AngularJS worked. I had really never touched any sort of Javascript framework before this point and I didn’t really understand the concept. After going through some tutorials and example code on the AngularJS website, I felt ready enough to tackle the project.&lt;/p&gt;
 
-&lt;p&gt;If you’ve already seen the movie or read the book, and want to read more about the science, &lt;a href=&quot;http://gizmodo.com/science-of-the-martian-the-good-the-bad-and-the-fasc-1734726471&quot;&gt;click this&lt;/a&gt;. If you haven’t read the book, read it. Or watch the movie. Or don’t do anything. It’s your life.&lt;/p&gt;
+&lt;p&gt;The Angular team makes it really easy to get a project up and running with the &lt;a href=&quot;https://cli.angular.io/&quot;&gt;angular-cli&lt;/a&gt; tool. After running their setup, all I had to do was configure a few components, set up my form and calculations, and apply some styles. It’s pretty barebones, but it got me to learn the basics of what AngularJS is all about, and I’m excited to be be able to use its tools in future projects.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://sosnader.tk/grade-calc&quot;&gt;&lt;img src=&quot;/img/posts/grade.png&quot; alt=&quot;grade app screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Thu, 13 Apr 2017 00:00:00 -0400</pubDate>
-        <link>http://sosnader.tk/passion/2017/04/13/the-martian.html</link>
-        <guid isPermaLink="true">http://sosnader.tk/passion/2017/04/13/the-martian.html</guid>
+        <pubDate>Sun, 18 Dec 2016 00:00:00 -0500</pubDate>
+        <link>http://sosnader.tk/technology/2016/12/18/making-a-webapp-with-angularjs.html</link>
+        <guid isPermaLink="true">http://sosnader.tk/technology/2016/12/18/making-a-webapp-with-angularjs.html</guid>
         
         
-        <category>passion</category>
+        <category>technology</category>
         
       </item>
     
       <item>
-        <title>Kitchen Confidential</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://images-na.ssl-images-amazon.com/images/I/51RqxoGhJML._SX319_BO1,204,203,200_.jpg&quot; alt=&quot;cover&quot; /&gt;&lt;/p&gt;
+        <title>Installing GalliumOS on a Toshiba Chromebook 2 (2015)</title>
+        <description>&lt;p&gt;Ever since Apple declined to release new Retina Macbook Pros at WWDC 2016, I’ve been on the hunt for a laptop to tide me over until the eventual release sometime in the fall. While I don’t exactly &lt;em&gt;need&lt;/em&gt; a new laptop just yet (after all, the lab computers at Penn State would be perfectly serviceable for the first few months of my first semester) I decided I would prefer to have something portable to take to class. I wasn’t planning on breaking the bank, so I settled on a Chromebook, and after researching a bit (with the help of &lt;a href=&quot;http://reddit.com/r/chromeos&quot;&gt;Reddit&lt;/a&gt;) I settled on a &lt;a href=&quot;https://www.amazon.com/Toshiba-Chromebook-CB35-C3300-Backlit-Keyboard/dp/B015806LMM&quot;&gt;Toshiba Chromebook 2&lt;/a&gt;, the 2015 edition with the backlit keyboard and 1920x1080 IPS screen. I was able to find a great deal on a refurbished one for $230.
+&lt;!--more--&gt;&lt;/p&gt;
 
-&lt;p&gt;For the record, I want to say that I &lt;em&gt;almost&lt;/em&gt; did another fantasy book this week, but at the last moment decided on this book instead.&lt;/p&gt;
+&lt;p&gt;One of the reasons Chromebooks are so cheap is that they aren’t often built with high-powered components. My version came with a 1.7 GHz Celeron processor, 4 GB of ram, and a 16 GB SSD. Most limiting, however, it came installed with ChromeOS. ChromeOS, while great for casual web browsing, doesn’t offer much when it comes to setting up a dev environment. While there are options for setting up a full linux environment within ChromeOS (see: &lt;a href=&quot;https://github.com/dnschneid/crouton&quot;&gt;Crouton&lt;/a&gt;), I decided I didn’t want ChromeOS a single bit.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Kitchen Confidential&lt;/em&gt; is written by the famouse chef (among other things) Anthony Bourdain. Anthony Bourdain is, to put it simply, really cool. Not only has he been a chef for years and capable of creating amazing food, he also has a really cool TV Show &lt;em&gt;Parts Unknown,&lt;/em&gt; where he travels the world and tries food from all cultures, all while teaching the audience about life and history in that particular area.&lt;/p&gt;
+&lt;p&gt;Yet, I had to give ChromeOS credit where credit was due. Because it’s so lightweight and its kernel is so optimized, it runs great on the limited hardware most Chromebooks provide. While installing full Linux (and even Windows!) is possible, it’s not always the best, performance-wise, and battery life can take a hit. Adding to the complexity, often it’s a pain to set up drivers and keyboard shortcuts to get your hardware working properly on the new OS.&lt;/p&gt;
 
-&lt;p&gt;But anyway, the book. It’s basically what got him famous. It’s a tale of his life in the kitchen, and it exposes the underbelly of commercial kitchens that you may not have known about. It’s a really cool look into an industry that is really far more complex and interesting than you might think. It’s also a very witty book. There are some darker parts, as Bourdain has not always had an easy life. But above everything else, it’s just incredibly engaging. If you read it, you’ll learn why you should never go out to brunch, why you should never order fish on a Monday, and how the mafia got involved with his restuarant (they supplied his meat).&lt;/p&gt;
+&lt;p&gt;That’s where  &lt;a href=&quot;https://galliumos.org/&quot;&gt;GalliumOS&lt;/a&gt; comes in. I found GalliumOS after searching around a bit, and reading the description convinced me it was what I needed. It’s super lightweight, and optimized almost as much as ChromeOS is, utilizing drivers and core files from the ChromeOS kernel itself to run near seamlessly on many popular Chromebooks.&lt;/p&gt;
 
-&lt;p&gt;Overall, this book kinda shows how messed up the cooking industry is. He talks about long hours, ignored injuries, and the necessity of a mascochistic personality. Becoming a professional cook is not for the faint of heart, and he makes that clear. But what comes out most in the pages is his sheer passion for the craft. You can tell how much he loves food and making food.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/posts/gallium.png&quot; alt=&quot;GalliumOS Homepage&quot; /&gt;
+&lt;em&gt;the GalliumOS homepage&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;It’s a really fun read, and it’s not even fantasy this time!&lt;/p&gt;
+&lt;p&gt;There’s a few options when it comes to actually installing GalliumOS. The least invasive involves using a utility called &lt;a href=&quot;https://chrx.org/&quot;&gt;chrx&lt;/a&gt;. There’s a simple step-by-step process which involves enabling Developer Mode (more on that later), running a script to flash the firmware, and then running another script to install GalliumOS alongside ChromeOS.&lt;/p&gt;
+
+&lt;p&gt;Like I said before however, I didn’t want to see ChromeOS &lt;em&gt;at all.&lt;/em&gt; Not to mention there’s other problems with going the dual-boot route. You’ll see a scary white screen warning you of the terrible damage you’ve done to your system (not really) and you’ll always have to enter either &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+L&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+D&lt;/code&gt; to enter GalliumOS or ChromeOS, repsectively. And there’s a few minor graphical glitches while booting up. 
+&lt;img src=&quot;/img/posts/osv.png&quot; alt=&quot;os verification example&quot; /&gt;
+&lt;em&gt;example of the scary white screen&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;While these may be only minor annoyances, bearable to those who don’t want to mess with their system &lt;em&gt;too&lt;/em&gt; much, I knew I wanted to go the more permanent route, which involves completely flashing the BIOS and installing the GalliumOS .iso from a flash drive. Below are the steps I took.&lt;/p&gt;
+
+&lt;h1 id=&quot;preparations&quot;&gt;Preparations&lt;/h1&gt;
+
+&lt;p&gt;Before I could get around to actually installing GalliumOS, I needed to get my Chromebook ready. The first thing I did was install a new 128 GB SSD, following &lt;a href=&quot;http://www.codedonut.com/chromebook/upgrade-ssd-toshiba-chromebook-2/&quot;&gt;this guide&lt;/a&gt;. It’s a little scary opening up the Chromebook, but using a plastic spudger tool and starting at the hinges of the laptop made it much easier than expected.&lt;/p&gt;
+
+&lt;p&gt;Once inside, I replaced the SSD and removed the hardware write protect screw. Removing this screw and the metallic circle underneath is necessary to allow proper flashing of the BIOS. &lt;a href=&quot;https://plus.google.com/105587851792537311339/posts/XhTMN2zdkHG&quot;&gt;There are pictures of the inside here&lt;/a&gt;. The screw to remove is right next to the SSD and wifi card.&lt;/p&gt;
+
+&lt;p&gt;After restoring ChromeOS, I powered off the device and pressed &lt;code class=&quot;highlighter-rouge&quot;&gt;Esc+Refresh+Power&lt;/code&gt; and then &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+D&lt;/code&gt; to put the device into Developer Mode, which allows changes to be made to the core files. After 15 minutes or so, my laptop rebooted and I pressed &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+D&lt;/code&gt; to get into ChromeOS for the last time.&lt;/p&gt;
+
+&lt;h1 id=&quot;flashing-the-bios&quot;&gt;Flashing the BIOS&lt;/h1&gt;
+
+&lt;p&gt;This step couldn’t have been simpler. I used coolstar’s Full ROM which included fixes for the graphical issues and removed the scary white screen. &lt;strong&gt;Important:&lt;/strong&gt; this also removes the ability to boot ChromeOS, meaning it is possible to brick your device. You can still recover it, but it’s a bit of a process.&lt;/p&gt;
+
+&lt;p&gt;Anyway, while I was in ChromeOS, I opened up a Chrome tab, pressed &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+Alt+T&lt;/code&gt;, typed “shell,” and then &lt;code class=&quot;highlighter-rouge&quot;&gt;Enter&lt;/code&gt; and then pasted the following command into the prompt and pressed enter.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; https://mrchromebox.tech/firmware-util.sh&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;bash firmware-util.sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;At this point, if you’ve suddenly decided you want to install Windows instead, you can continue with &lt;a href=&quot;https://coolstar.org/chromebook/windows-install.html&quot;&gt;coolstar’s guide&lt;/a&gt;. Otherwise, it’s time to make a bootable USB drive of GalliumOS.&lt;/p&gt;
+
+&lt;h1 id=&quot;installing-galliumos&quot;&gt;Installing GalliumOS&lt;/h1&gt;
+
+&lt;p&gt;I used &lt;a href=&quot;https://sourceforge.net/projects/win32diskimager/&quot;&gt;Win32DiskImager&lt;/a&gt;) to make my flash drive after downloading the GalliumOS .iso from their website. All I needed to do to install was plug it in and reboot my device. After following a few onscreen prompts, GalliumOS was installed!&lt;/p&gt;
+
+&lt;h1 id=&quot;customizing-galliumos&quot;&gt;Customizing GalliumOS&lt;/h1&gt;
+
+&lt;p&gt;GalliumOS is based on Xubuntu, and while it looks and acts pretty great out of the box, there’s a couple things I did to make it prettier and more functional.&lt;/p&gt;
+
+&lt;p&gt;Clicking the GalliumOS icon in the bottom left corner brings up a sort of Start Menu. From there, I navigated to Settings, and then Keyboard, and binded &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+Alt+T&lt;/code&gt; to the command &lt;code class=&quot;highlighter-rouge&quot;&gt;xfce4-terminal&lt;/code&gt;, which opens the Terminal.&lt;/p&gt;
+
+&lt;p&gt;I installed &lt;a href=&quot;http://www.webupd8.org/2015/01/albert-fast-lightweight-quick-launcher.html&quot;&gt;Albert&lt;/a&gt; which is a task launcher kind of like Synapse or Alfred. I binded it to &lt;code class=&quot;highlighter-rouge&quot;&gt;Alt+A&lt;/code&gt; and messed around with the functionality. Since the Toshiba Chromebook doesn’t have a &lt;code class=&quot;highlighter-rouge&quot;&gt;Super&lt;/code&gt; key, I wanted something to quickly launch applications.&lt;/p&gt;
+
+&lt;p&gt;I also installed &lt;a href=&quot;http://linrunner.de/en/tlp/tlp.html&quot;&gt;TLP&lt;/a&gt;, which is supposed to improve battery life. I haven’t really been able to test how well my battery is in GalliumOS, but I have not noticed it draining any quicker than I would have expected. TLP is in the Ubuntu repo for 16.04 so all it needs is a simple &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get intall tlp&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;I moved the bottom panel to the top, shrunk it a bit, and removed the functionality that showed open windows. Then I installed &lt;a href=&quot;https://launchpad.net/plank&quot;&gt;Plank&lt;/a&gt; to get more of an OSX feel.&lt;/p&gt;
+
+&lt;p&gt;After installing Chrome, I made shortcuts to my Chrome Apps and added them to Plank. Now, even when I’m offline I can edit documents using Google Docs and access my files in Google Drive.&lt;/p&gt;
+
+&lt;p&gt;I’ve been a member of &lt;a href=&quot;http://desktoppr.co&quot;&gt;Desktoppr.co&lt;/a&gt; for a while now, and I’ve amassed a pretty large selection of beautiful wallpapers. It’s really simple to get a slideshow of wallpapers in the XFCE environemnt. I just right clicked (clicked the touchpad with two fingers) on the desktop, selected to customize it, chose the folder where I downloaded my wallpapers, and checked the box to shuffle wallpapers with a timer. The end result of all this is pretty great.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/posts/desktop.png&quot; alt=&quot;Desktop screenshot&quot; /&gt;
+&lt;em&gt;my customized linux setup&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;And that’s it! I’m completely happy with my laptop, and I’m even second-guessing whether or not I’ll really need the new Macbook Pro when it comes out. This little thing looks beautiful and I haven’t run into any hiccups or slowdowns yet. Certainly a great deal for only $280.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 05 Apr 2017 00:00:00 -0400</pubDate>
-        <link>http://sosnader.tk/passion/2017/04/05/kitchen-confidential.html</link>
-        <guid isPermaLink="true">http://sosnader.tk/passion/2017/04/05/kitchen-confidential.html</guid>
+        <pubDate>Mon, 11 Jul 2016 00:00:00 -0400</pubDate>
+        <link>http://sosnader.tk/technology/2016/07/11/installing-galliumos-on-chromebook.html</link>
+        <guid isPermaLink="true">http://sosnader.tk/technology/2016/07/11/installing-galliumos-on-chromebook.html</guid>
         
         
-        <category>passion</category>
-        
-      </item>
-    
-      <item>
-        <title>Filibusters</title>
-        <description>&lt;p&gt;If you’ve been reading the news recently, you’d know that the Democrats in the Senate have been planning on “filibustering” the nomination of Neil Gorsuch to the Supreme Court. And, if you were paying attention a few months ago, you’d know that the Republicans did the same to Obama’s nomination of Merrick Garland. But what exactly is a filibuster, and what’s its history?&lt;/p&gt;
-
-&lt;p&gt;You may have a vision in your head of a lone Congressman passionately standing on the floor, speaking for as long as he humanly can to delay or stop the passage of an unjust bill. In fact, Senator Jeff Merkley, (D - Oregon) just acted out that exact scene last night, &lt;a href=&quot;https://www.nytimes.com/2017/04/05/us/politics/senator-jeff-merkley-protest-gorsuch-nomination.html&quot;&gt;speaking for 15 hours&lt;/a&gt; against Gorsuch’s nomination. But that wasn’t even a filibuster. So what is?&lt;/p&gt;
-
-&lt;p&gt;The history of the word “filibuster” comes from the word “flee-booters” or “freebooters.” Freebooters referred to pirates which would raid Spanish colonies in the Caribbean in the 17th century. Later, in the 1850s, the word morphed into “filibusters,” and was used to refer to Americans who incited revolutions in Central America. It was only until 1890 that the term was actually used to refer to what we see it as today. However, the concept of filibustering existed in Congress long before that.&lt;/p&gt;
-
-&lt;p&gt;When the U.S. Senate was first created, it adopted rules which allowed for senators to end debate on a discussion and move right to a vote. These rules meant that a filibuster would be impossible–senators could simply move to move to a vote. But the rule wasn’t used very often, and in 1806, it was removed. The first time the concept of a filibuster was brought up happened in 1837, although it wasn’t called a filibuster. The Senate was debating on the passage of a bill to create the Second Bank of America, and Henry Clay wanted the debate to end immediately. Senator William King threated to delay the debate indefinitely, and Clay acquiesed. He didn’t actually have to filibuster, but the door had been opened.&lt;/p&gt;
-
-&lt;p&gt;Filibusters still were used sparsely, however, the Senate enacted the rule of “cloture” in 1917, which was a rule that debate could be ended by a two thirds vote by Senators. This was later changed to three fifths, then back to two thirds. Filibusters began to pick up steam during the 1950s and 60s, when they were used by Southern Senators to delay passage of civil rights legislature. It’s kind of funny that we see filibusters today as perhaps noble and valiant efforts, when the first times they were used in earnest were to prohibit civil rights.&lt;/p&gt;
-
-&lt;p&gt;Up until this point, all filibusters had been “talking filibusters.” Basically, senators would actually have to stand on the floor and talk for as long as the filibuster went. The record was over 24 hours, and while a filibuster was occurring, nothing else could be done or discussed. The rules were changed so that a topic or bill could be “virtually filibustered,” while the Senate moved on to other things. This way, the Senate did not get gridlocked, but filibusters could still remain a thing.&lt;/p&gt;
-
-&lt;p&gt;Up until this point, filibusters could only be overturned by a two thirds majority vote for cloture. In practice, this made it difficult to stop a filibuster if one party was against it and one party was for it. However, in 2005, a new option was formed when Democrats filibustered some of George Bush’s judicial nominees. Although cloture required a two thirds majority, there was a parlimentary rule which allowed any senator to challege any rule on the basis of constitutionality. The vote on whether or not to remove the rule would be decided by a simple majority. In this manner, it would be possible to challenge the cloture rule, declare it unconstitutional, and remove it, all with only a simple majority of votes. It was called the “nuclear option.”&lt;/p&gt;
-
-&lt;p&gt;Filibusters have become more and more common as partisanship has increased in Washington. As we can see, the amount of motions for cloture has increased substantially, and although not all cloture motions are for filibusters, it is clear that filibustering has a lot of its gravitas.
-&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/US_Senate_cloture_since_1917.png/800px-US_Senate_cloture_since_1917.png&quot; alt=&quot;cloture&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The nuclear option has been used before, by Democrats, but only for lower-court judgeship nominations. Filibusters are still viable for Supreme Court nominations and passing legislation. However, even that might change, as Republicans have said they will use the nuclear option on Gorsuch’s nomination if Democrats refuse to stop their filibuster.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;THE REPUBLICANS JUST DEPLOYED THE NUCLEAR OPTION FOR GORSUCH&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.nytimes.com/2017/04/06/us/politics/neil-gorsuch-supreme-court-senate.html&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Overall, the filibuster went from being impossible, to being rarely used, to becoming an almost common part of Senate practice. I believe this change is due to the increasing lack of compromise in Congress. I’ve touched on this increasing divide in some of my older posts, and I think it’s important to recognize. Republicans and Democrats are, more and more often, simply refusing to cooperate with each other. The increasing use (and possible removal) of the filibuster is just another sign of that. As I’ve sad before as well, something needs to change.&lt;/p&gt;
-
-&lt;p&gt;https://www.nytimes.com/2017/04/05/us/politics/senator-jeff-merkley-protest-gorsuch-nomination.html
-http://www.npr.org/templates/story/story.php?storyId=4656990
-https://www.nytimes.com/2017/04/03/us/politics/filibuster-supreme-court-neil-gorsuch.html?_r=0
-http://www.politifact.com/truth-o-meter/article/2017/feb/03/6-questions-answered-about-nuclear-option-filibust/
-https://www.brookings.edu/testimonies/the-history-of-the-filibuster/&lt;/p&gt;
-</description>
-        <pubDate>Wed, 05 Apr 2017 00:00:00 -0400</pubDate>
-        <link>http://sosnader.tk/civic-issues/2017/04/05/filibusters.html</link>
-        <guid isPermaLink="true">http://sosnader.tk/civic-issues/2017/04/05/filibusters.html</guid>
-        
-        
-        <category>civic-issues</category>
-        
-      </item>
-    
-      <item>
-        <title>Issue Brief</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://docs.google.com/document/d/1yELJEE1DgdKyl_TuJUx7a5Sz9w-SlGGUssQaeCAI1Aw/edit?usp=sharing&quot;&gt;Link to issue brief&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Tue, 28 Mar 2017 00:00:00 -0400</pubDate>
-        <link>http://sosnader.tk/rcl/2017/03/28/issue-brief.html</link>
-        <guid isPermaLink="true">http://sosnader.tk/rcl/2017/03/28/issue-brief.html</guid>
-        
-        
-        <category>rcl</category>
-        
-      </item>
-    
-      <item>
-        <title>50 Shades of Grey</title>
-        <description>&lt;p&gt;DISCLAIMER: I have not actually read this book, however it was requested that I review a romance novel, so here it is.&lt;/p&gt;
-
-&lt;p&gt;I’m sure we all have heard of &lt;em&gt;50 Shades of Grey,&lt;/em&gt; by EL James. It’s basically a part of mainstream pop culture by now. It’s rocked the nation, sold over 125 million copies as of June 2015, and been translated into 52 languages. Two movies have been made out of it and its sequel, &lt;em&gt;50 Shades Darker&lt;/em&gt; (wow, what a creative name).&lt;/p&gt;
-
-&lt;p&gt;So what &lt;em&gt;is&lt;/em&gt; it about this book that makes it so popular? Could it have deep, compelling prose that pulls out the intricacies of love and romance, like the classic, &lt;em&gt;The Scarlet Letter?&lt;/em&gt; Could it be that it perhaps takes a daring approach at a difficult subject, and executes a careful yet masterful exploration of BDSM? Or, maybe it’s that the people have been longing for a well written book with a strong female lead, and &lt;em&gt;50 Shades&lt;/em&gt; perfectly picks up this mantle.&lt;/p&gt;
-
-&lt;p&gt;Spoiler: it’s none of these things. It’s garbage, an awfully written erotic novel based on a &lt;em&gt;Twilight&lt;/em&gt; fanfiction that has managed to capture so much attention due to it’s exploitation of one of humanity’s most basic urges – sex. The only reason this book has done so well is because it’s managed to put a mainstream face on an erotica novel. I’m not even sure how it happened, though, because the book is so poorly written. Not only that, it also portrays not a healthy, loving relationship, but one of abuse, exploitation, and cruelty. The relationship portrayed in the book is not one that any person should seek out, and by making it sound like a thrillfest, EL James is doing harm to our society’s perception of healthy sexual relationships.&lt;/p&gt;
-
-&lt;p&gt;Please, please, don’t read this book. And if you already have, I am so sorry. I’ll leave you with a quote from the book that makes me burst out in laughter every time I read it because of how awful it is:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“I feel the colour in my cheeks rising again. I must be the colour of The Communist Manifesto.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/posts/comm.jpg&quot; alt=&quot;Communist Manifesto cover&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 22 Mar 2017 00:00:00 -0400</pubDate>
-        <link>http://sosnader.tk/passion/2017/03/22/50-shades-of-grey.html</link>
-        <guid isPermaLink="true">http://sosnader.tk/passion/2017/03/22/50-shades-of-grey.html</guid>
-        
-        
-        <category>passion</category>
-        
-      </item>
-    
-      <item>
-        <title>The Stormlight Archive</title>
-        <description>&lt;p&gt;&lt;img src=&quot;/img/posts/archive.jpg&quot; alt=&quot;archive&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Today I’m gonna talk about one of my favorite fantasy series by one of my favorite authors: &lt;em&gt;The Stormlight Archive,&lt;/em&gt; by Brandon Sanderson. Brandon Sanderson has been around for a while, and he basically writes books like a tank. If you’re sick of George RR Martin’s incredibly slow writing pace, then you’ll be glad to hear that Sanderson is the exact opposite. He just churns out book after book, series after series, and it’s all quality.&lt;/p&gt;
-
-&lt;p&gt;I actually first read Sanderson books in gradeschool–he had this series for young adults about this evil cult of librarians. It was funny and well written. About a year ago, I read through a lot of his other works, and loved it all. He’s mainly a fantasy writer, and all of his fantasy series have really cool, unique systems of magic and little quirks. He’s really good at fleshing out cool, fantastical elements in his stories. Another cool thing is that many of his stories and series are actually connected under one big universe that he calls “The Cosmere.” You can find hints and refernces to other stories and events in just about all of his books.&lt;/p&gt;
-
-&lt;p&gt;Anyway, on to &lt;em&gt;The Stormlight Archive.&lt;/em&gt; He has another really great series, &lt;em&gt;Mistborn,&lt;/em&gt; which I also loved, but I’ll save that for another time. &lt;em&gt;The Stormlight Archive,&lt;/em&gt; is Sanderson’s first attempt at writing an epic fantasy series (like along the lines of &lt;em&gt;Game of Thrones&lt;/em&gt;, or &lt;em&gt;The Wheel of Time&lt;/em&gt;, which Sanderson actaully finished after the original author died). These books are really long. He plans on publishing ten books, and there’s two already out, with a third coming later this year. Unlike GRRM, I actually have faith that Sanderson will finish the series.&lt;/p&gt;
-
-&lt;p&gt;Okay, so I can’t really properly describe what the world in these books is actually &lt;em&gt;like,&lt;/em&gt; because it’s pretty complicated, but I’ll send you over to &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Way_of_Kings#Setting&quot;&gt;Wikipedia’s&lt;/a&gt; description of the setting. There’s like magic gemstones and spirits and really cool glowing swords and stuff.&lt;/p&gt;
-
-&lt;p&gt;One possible downside of Sanderson that he tends to write very clean books. If you’re used to GRRM and lots of blood, sex, and cursing, you’ll be disappointed to not find any of that in Sanderson’s books. His characters don’t curse, instead opting to say things like “Storms!” where you’d expect someone to say “Fuck.” Romance is very PG and may remind you of middle school, rather than real life. But his books are always just really enjoyable to read. You get drawn in to the world, and the creative elements behind it. Sanderson is really good at worldbuilding and creating an intense and exciting story, even if his prose isn’t my personal favorite style.&lt;/p&gt;
-
-&lt;p&gt;Check him out!&lt;/p&gt;
-</description>
-        <pubDate>Thu, 16 Mar 2017 00:00:00 -0400</pubDate>
-        <link>http://sosnader.tk/passion/2017/03/16/the-stormlight-archive.html</link>
-        <guid isPermaLink="true">http://sosnader.tk/passion/2017/03/16/the-stormlight-archive.html</guid>
-        
-        
-        <category>passion</category>
-        
-      </item>
-    
-      <item>
-        <title>The Reversal of the Political Parties</title>
-        <description>&lt;p&gt;We all know the two main political parties of today. On the one side, there’s the Republicans: staunch conservatives who favor small government, state’s rights, and big business (yes, this is an oversimplification). On the other side, there’s the Democrats: liberals who focus more on big government programming and social progressiveness.&lt;/p&gt;
-
-&lt;p&gt;But it wasn’t always like this. Before we get into the history of the Democratic and Republican Parties specifically, let’s take a look at the history of political parties in the United States as a whole.&lt;/p&gt;
-
-&lt;h2 id=&quot;george-washington&quot;&gt;George Washington&lt;/h2&gt;
-
-&lt;p&gt;George Washington, our first president, wasn’t actually in any political party, technically. He actually did not like the idea of political parties, saying in his Farewell Address:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“However [political parties] may now and then answer popular ends, they are likely in the course of time and things, to become potent engines, by which cunning, ambitious, and unprincipled men will be enabled to subvert the power of the people and to usurp for themselves the reins of government, destroying afterwards the very engines which have lifted them to unjust dominion.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;(Perhaps even more pertient in our present political climate).&lt;/p&gt;
-
-&lt;p&gt;So anyway, that didn’t last long.&lt;/p&gt;
-
-&lt;h2 id=&quot;federalist-party&quot;&gt;Federalist Party&lt;/h2&gt;
-
-&lt;p&gt;Technically, the Federalist Party could be considered the party of Washington. Its ideas were centered around the concept of federalism, i.e. a strong central government.&lt;/p&gt;
-
-&lt;h2 id=&quot;anti-federalist-party&quot;&gt;Anti-Federalist Party&lt;/h2&gt;
-
-&lt;p&gt;Self explanatory, basically. These guys sprung up right around 1800 and focused more on the common people and their right for representation. They were renamed the Republican Party, and then the Democratic-Republican Party. In the 1810s, the Federalist Party fell apart. The Democratic Republican Party split into different factions. Around the time of Andrew Jackson’s presidency, they were renamed simply the Democratic Party.&lt;/p&gt;
-
-&lt;h2 id=&quot;whig-party&quot;&gt;Whig Party&lt;/h2&gt;
-
-&lt;p&gt;A different faction of the Democratic Republican Party formed the Whig Party.  The Whig Party is important in the formation of the Republican Party because the Republican Party continued many of the ideas of the Whig Party, mainly, big government involvement.&lt;/p&gt;
-
-&lt;h2 id=&quot;democratic-and-republican-parties&quot;&gt;Democratic and Republican Parties&lt;/h2&gt;
-
-&lt;p&gt;So, the timeline where we can begin discussing these two parties and how they changed starts right around the Civil War. The Republican Party at the time, was the “party of Lincoln,” and as such, promoted forward-thinking ideas like freedom of slavery, voting rights for black men, and big government. The Democratic Party at the time was more traditional–it wasn’t new and fresh like the Republican Party, and it focused more on things like state’s rights.&lt;/p&gt;
-
-&lt;p&gt;After the Civil War, the Republican Party had multiple factions–some with more progressive economic ideas, and some with more conservative ideas. This will be important later.&lt;/p&gt;
-
-&lt;p&gt;Right before 1900, with William Jennings Bryan being the Democratic Party’s presidental candidate, the party shifted a bit more to the progressive side. WJB incorporated the Populist Party under the Democratic Party, which gave it a more economically left angle.&lt;/p&gt;
-
-&lt;p&gt;Now, remember how the Republican Party had those two factions? In 1912 Teddy Roosevelt runs under the Progressive Party, not the Republican Party, breaking away that progressive faction and leaving only the conservative behind. Franklin Roosevelt in the 1930s adopted Progressive Party platforms into the Democratic coalition.&lt;/p&gt;
-
-&lt;p&gt;A major shift comes in the 1960s with Lyndon B Johnson. Civil Rights become part of the Democratic Platform, and alienates many southern white voters. At this time, the Republican Party begins implementing the “Southern strategy,” where they appealed to southern, racist, white voters who were alienated by the Democratic Party.&lt;/p&gt;
-
-&lt;p&gt;So, at this point, we can generally see the political parties having the same alignments as they do today. The Democratic Party embraced many progressive ideals, both economic and social. The Republican Party ended up losing its progressive economic wing and, to get more votes, became more socially conservative. However, the parties were still not super polarized at this point. You could find conservative democrats and liberal republicans.&lt;/p&gt;
-
-&lt;p&gt;Contrast that with today’s political climate, and you see extreme polarization on both sides. There’s barely ever any compromise, and it’s frankly vicious to watch. The reasons for this, in my opinion, are largely due to the polarization that occurred during the Obama presidency. I touched on that in my previous post.&lt;/p&gt;
-
-&lt;p&gt;So that’s the general gist of it. I think we’re due for a reorganization of splitting of either or both of the two parties soon. The polarization is too extreme, and there’s infighting in the parties. We’ll see.&lt;/p&gt;
-
-&lt;p&gt;https://www.quora.com/Is-it-true-that-Democrats-used-to-be-the-conservative-party-and-Republicans-used-to-be-the-progressive-party
-https://tedtheeconomist.wordpress.com/2015/07/06/when-exactly-did-the-political-paradigm-shift-happen/comment-page-1/
-http://www.government-and-constitution.org/history-us-political-parties/timeline-us-political-parties.htm&lt;/p&gt;
-</description>
-        <pubDate>Wed, 15 Mar 2017 00:00:00 -0400</pubDate>
-        <link>http://sosnader.tk/civic-issues/2017/03/15/reversal-political-parties.html</link>
-        <guid isPermaLink="true">http://sosnader.tk/civic-issues/2017/03/15/reversal-political-parties.html</guid>
-        
-        
-        <category>civic-issues</category>
-        
-      </item>
-    
-      <item>
-        <title>Discworld</title>
-        <description>&lt;p&gt;&lt;img src=&quot;/img/posts/disc.jpg&quot; alt=&quot;discworld&quot; /&gt;
-&lt;em&gt;Discworld&lt;/em&gt; is not one book, but a series of books by the English author Terry Pratchett. It’s one of my all time favorite series. Terry Pratchett is, unfortunately, deceased, but before he went, he wrote 40 of these books, so he did pretty well for himself.&lt;/p&gt;
-
-&lt;p&gt;The idea behind the Discworld universe is that, you guessed it, the world is a disc. The disc rests atop four elephants, which are standing on a giant turtle which floats through space. Yeah. Very realistic. It’s a fantasy world, with magic and all sorts of other crazy things. It’s kind of disengenuous to call Discworld a series, though. It’s more like a large collection of books all in the same universe, with different recurring people and areas and a (kind of loose) overall story.&lt;/p&gt;
-
-&lt;p&gt;There’s actually no need to read any of the stories in any particular order. I personally read them all in their published order, but that’s not necessary. There’s a few infographics online outlining good ways to start, and the different story arcs and plotlines. In general, there’s four main groups of people to look out for. There’s Rincewind, who’s a magician, the Witches, who are witches (duh), Death (I don’t have to explain), and The Watch. The Watch follows the lives of the city watchmen in Discworld’s twin cities, Ankh Morpork.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/posts/reading.jpg&quot; alt=&quot;reading order&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The reason I like these books so much is not just because they’re good fantasy books (and I really like fantasy), but because they’re actually incredibly funny. If you’ve ever read &lt;em&gt;The Hitchhiker’s Guide to the Galaxy,&lt;/em&gt; you’ll know exactly the type of humor I’m talking about. It’s that dry British wit that comes out in fantastic ways.&lt;/p&gt;
-
-&lt;p&gt;I’ll leave you with some of the &lt;a href=&quot;https://www.buzzfeed.com/donnad/discworld-quotes-about-life-the-universe-and-everything&quot;&gt;best quotes&lt;/a&gt; from the books.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 02 Mar 2017 00:00:00 -0500</pubDate>
-        <link>http://sosnader.tk/passion/2017/03/02/discworld.html</link>
-        <guid isPermaLink="true">http://sosnader.tk/passion/2017/03/02/discworld.html</guid>
-        
-        
-        <category>passion</category>
+        <category>technology</category>
         
       </item>
     
