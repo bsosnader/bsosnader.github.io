@@ -6,9 +6,71 @@
 </description>
     <link>http://sosnader.tk/</link>
     <atom:link href="http://sosnader.tk/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 11 Sep 2018 22:14:28 -0400</pubDate>
-    <lastBuildDate>Tue, 11 Sep 2018 22:14:28 -0400</lastBuildDate>
+    <pubDate>Thu, 13 Sep 2018 15:19:12 -0400</pubDate>
+    <lastBuildDate>Thu, 13 Sep 2018 15:19:12 -0400</lastBuildDate>
     <generator>Jekyll v3.7.0</generator>
+    
+      <item>
+        <title>Nearby: Crowdsourced Fun</title>
+        <description>&lt;p&gt;This past spring, I took Penn State’s CMPSC 431W - Database Management Systems class. The class is meant to be a senior year, capstone class, so a major part of the grading process is a semester-long group project focused on full-stack development.&lt;/p&gt;
+
+&lt;p&gt;My group’s idea was a crowd-sourced web application to for nearby events, meetups, or giveaways. The intention would be for users to post events that they walked by, or knew were happening somewhere close by. Then, other users would vote on the events so people could see the popular things going on around them. It would all be based on the user’s location. We knew we were being kind of ambitious for the amount of time we had, but we thought it was a really cool idea so we went with it!&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;We first had to go through the typical steps that any software development project should go through at the beginning–writing functional specifications and sketching out the structure and layout of the application–before starting any coding. For me, this was great experience for working in a real development environment. Often, personal projects will just get slapped together a little bit too quickly, when some initial planning could have made things much easier.&lt;/p&gt;
+
+&lt;p&gt;Through the planning process, we settled on a system framework.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/posts/sys_framework.png&quot; alt=&quot;framework&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I primarily did the work on the frontend. I had a fair amount of experience with Angular from my previous internship, so it made sense to use it again on this project. I thought it would be a breeze, but I actually ran into a few interesting issues to tackle and learn about throughout the implementation.&lt;/p&gt;
+
+&lt;h1 id=&quot;location&quot;&gt;Location&lt;/h1&gt;
+
+&lt;p&gt;One of the biggest features of the application was that it was location-based. Everything revolved around seeing &lt;em&gt;nearby&lt;/em&gt; events–you wouldn’t really care about something going on 50 miles away. So one of the most important features of the project was to be able to actually get that information from the user.&lt;/p&gt;
+
+&lt;p&gt;There’s supposed to be a built-in API in the browser for doing it, and the code is simple enough:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;geolocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getCurrentPosition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;do_something&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;coords&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latitude&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;coords&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;longitude&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;However, what I found was that often during testing, and less frequently in a live environment, the API just wouldn’t work. There wasn’t really a clear explanation why it would happen, and it persisted even after fiddling with several different settings.&lt;/p&gt;
+
+&lt;p&gt;I decided that a efficient and easy fallback would be to simply ask for the user’s zipcode if the location request didn’t go through. That way, a user could still use the app even if the API failed or if they didn’t want to share their exact location.&lt;/p&gt;
+
+&lt;h1 id=&quot;user-authentication&quot;&gt;User Authentication&lt;/h1&gt;
+
+&lt;p&gt;This project was the first time I had actually had to implement something more than just a simple authentication window in an application. Fortunately, using JSON Web Tokens made it extremely easy to authenticate users and store their tokens for persistent login.&lt;/p&gt;
+
+&lt;p&gt;One thing that caused a wrinkle here was that our app’s components had different functionalities and looks depending on if a user was logged in or not. It was initially challenging to find a way to ensure that every component that needed to would update when a user logged in or out.&lt;/p&gt;
+
+&lt;p&gt;To fix this I made use of Angular’s &lt;a href=&quot;https://angular.io/guide/component-interaction#parent-and-children-communicate-via-a-service&quot;&gt;shared service&lt;/a&gt; concept. Basically, every time a login or logout event was emitted, it would broadcast that through the service to all other components subscribed to that service. That way, I could basically have a communication path between components that would allow for them to listen for those events.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;From this project I got a lot more experience with Angular and with working in a group. Collaborating with the backend group members, building up features and interactions, and linking everything together was exciting and educational.&lt;/p&gt;
+
+&lt;p&gt;The app is no longer online because we didn’t want to pay for hosting, but you’ll find some screenshots below!&lt;/p&gt;
+
+&lt;div class=&quot;slider&quot;&gt;
+  &lt;div&gt;&lt;a href=&quot;/img/projects/nearby/1.png&quot;&gt;&lt;img src=&quot;/img/projects/nearby/1.png&quot; alt=&quot;nearby screenshot&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;a href=&quot;/img/projects/nearby/2.png&quot;&gt;&lt;img src=&quot;/img/projects/nearby/2.png&quot; alt=&quot;nearby screenshot&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;a href=&quot;/img/projects/nearby/3.png&quot;&gt;&lt;img src=&quot;/img/projects/nearby/3.png&quot; alt=&quot;nearby screenshot&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;a href=&quot;/img/projects/nearby/4.png&quot;&gt;&lt;img src=&quot;/img/projects/nearby/4.png&quot; alt=&quot;nearby screenshot&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Mon, 10 Sep 2018 00:00:00 -0400</pubDate>
+        <link>http://sosnader.tk/technology/2018/09/10/nearby-web-app-project.html</link>
+        <guid isPermaLink="true">http://sosnader.tk/technology/2018/09/10/nearby-web-app-project.html</guid>
+        
+        
+        <category>technology</category>
+        
+      </item>
     
       <item>
         <title>My Summer Internship</title>
@@ -58,7 +120,9 @@
         <title>Visualizing Penn State's Daily Gym Attendance</title>
         <description>&lt;p&gt;&lt;img src=&quot;/img/posts/gym.jpg&quot; alt=&quot;white building &quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;notice-as-of-summer-2018-penn-state-has-taken-down-the-website-i-used-to-scrape-data-from-so-the-site-doesnt-work-anymore-&quot;&gt;Notice: As of Summer 2018, Penn State has taken down the website I used to scrape data from, so the site doesn’t work anymore. :(&lt;/h4&gt;
+&lt;h4 id=&quot;notice-as-of-summer-2018-penn-state-has-taken-down-the-website-i-used-to-scrape-data-from-so-the-graph-doesnt-work-anymore--also-turns-out-i-dont-have-any-full-size-screenshots-saved-anymore-so-enjoy-this-blurry-thumbnail-of-the-final-product&quot;&gt;Notice: As of Summer 2018, Penn State has taken down the website I used to scrape data from, so the graph doesn’t work anymore. :( Also, turns out I don’t have any full-size screenshots saved anymore, so enjoy this blurry thumbnail of the final product&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/posts/fitness.png&quot; alt=&quot;fitness thumbnail&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;If you’re a Penn State student who likes to exercise, you know that the three on-campus gyms can get &lt;em&gt;really&lt;/em&gt; crowded. It sometimes seems like you have to get there immediately at opening time if you want to get a peaceful, uninterrupted workout in. It’s to be expected–although three gyms is a lot, 46,000 students is even more. The University recognizes that this can be a problem, and takes a count of students entering and exiting each gym, uploading it to a &lt;a href=&quot;https://studentaffairs.psu.edu/CurrentFitnessAttendance/&quot;&gt;really neat webapp&lt;/a&gt; where you can see how crowded each gym is. But that doesn’t really help you plan–you can only see what’s happening in the moment. Sure, eventually if you check it enough you get used to knowing when the crowds come and go, but it’d be a lot more useful (and interesting) to see attendance charted over time. So I decided to do just that.
 &lt;!--more--&gt;&lt;/p&gt;
@@ -166,8 +230,6 @@
 
 &lt;p&gt;Funnily enough, I think what I learned the &lt;em&gt;most&lt;/em&gt; about through this project was the linux shell. I had to use it extensively to configure the servers, run commands, and test things. I got far more comfortable with it than I had been before, and I think those skills will really help my productivity in the future.&lt;/p&gt;
 
-&lt;p&gt;Anyway, that’s all! I’m pretty sure no one will ever read this other than me, so that’s kind of sad. But hey, it’s good to write out my steps and process to help me remember how I did it and to document it for the future.&lt;/p&gt;
-
 &lt;p&gt;Until next time!&lt;/p&gt;
 </description>
         <pubDate>Thu, 13 Apr 2017 00:00:00 -0400</pubDate>
@@ -180,17 +242,17 @@
       </item>
     
       <item>
-        <title>Making a Webapp with AngularJS</title>
+        <title>Making a Webapp with Angular</title>
         <description>&lt;p&gt;It hadn’t yet been a day since I’d been home for winter break, and I already had grown bored of just sitting around. Sure, we all dream of the promised land after the semester is over, where there are no responsibilities and no homework, and where finals are nothing but a faint memory in our heads, but in reality, it gets old, fast.&lt;/p&gt;
 
 &lt;p&gt;Speaking of finals, though, there’s a peculiar phenonenom the seems to occur during the last week or so of the semester—college students, instead of studying, will inevitably spend all of their free time calculating the lowest possible grade they can get on their finals to still get the grade they want in their classes. I’m not immune to it myself—it’s fun, and quite frankly relieving, to discover you only need a 65% on your CS final to get an A in the course. And if you look online, you’ll find there’s plenty of websites that do the calculations for you. I decided to make one too.
 &lt;!--more--&gt;&lt;/p&gt;
 
-&lt;p&gt;I wanted to cure my boredom and learn at the same time, so I decided to make it using something I haven’t really had experience with before: &lt;a href=&quot;https://angular.io&quot;&gt;AngularJS&lt;/a&gt;. Although this idea has been done plenty of times before, I thought it would be a nice way to experiment with AngularJS. You can find the finished project &lt;a href=&quot;http://sosnader.tk/grade-calc&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I wanted to cure my boredom and learn at the same time, so I decided to make it using something I haven’t really had experience with before: &lt;a href=&quot;https://angular.io&quot;&gt;Angular&lt;/a&gt;. Although this idea has been done plenty of times before, I thought it would be a nice way to experiment with Angular. You can find the finished project &lt;a href=&quot;http://sosnader.tk/grade-calc&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;I faced a few challenges in getting this project up and running, but all in all it only took me the better part of a Sunday afternoon. The biggest challenge that I had to overcome was to actually figure out how AngularJS worked. I had really never touched any sort of Javascript framework before this point and I didn’t really understand the concept. After going through some tutorials and example code on the AngularJS website, I felt ready enough to tackle the project.&lt;/p&gt;
+&lt;p&gt;I faced a few challenges in getting this project up and running, but all in all it only took me the better part of a Sunday afternoon. The biggest challenge that I had to overcome was to actually figure out how Angular worked. I had really never touched any sort of Javascript framework before this point and I didn’t really understand the concept. After going through some tutorials and example code on the Angular website, I felt ready enough to tackle the project.&lt;/p&gt;
 
-&lt;p&gt;The Angular team makes it really easy to get a project up and running with the &lt;a href=&quot;https://cli.angular.io/&quot;&gt;angular-cli&lt;/a&gt; tool. After running their setup, all I had to do was configure a few components, set up my form and calculations, and apply some styles. It’s pretty barebones, but it got me to learn the basics of what AngularJS is all about, and I’m excited to be be able to use its tools in future projects.&lt;/p&gt;
+&lt;p&gt;The Angular team makes it really easy to get a project up and running with the &lt;a href=&quot;https://cli.angular.io/&quot;&gt;angular-cli&lt;/a&gt; tool. After running their setup, all I had to do was configure a few components, set up my form and calculations, and apply some styles. It’s pretty barebones, but it got me to learn the basics of what Angular is all about, and I’m excited to be be able to use its tools in future projects.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://sosnader.tk/grade-calc&quot;&gt;&lt;img src=&quot;/img/posts/grade.png&quot; alt=&quot;grade app screenshot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>

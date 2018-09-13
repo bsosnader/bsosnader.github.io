@@ -6,17 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Making a Webapp with AngularJS</title>
+  <title>Making a Webapp with Angular</title>
   <meta name="description" content="It hadn’t yet been a day since I’d been home for winter break, and I already had grown bored of just sitting around. Sure, we all dream of the promised land ...">
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:200|Montserrat|Arvo|Open+Sans' rel='stylesheet' type='text/css'>
+
   <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/slick-theme.css">
+
   <link rel="canonical" href="http://sosnader.tk/technology/2016/12/18/making-a-webapp-with-angularjs.html">
   <link rel="alternate" type="application/rss+xml" title="Brenden Sosnader" href="http://sosnader.tk/feed.xml">
 
-  <link rel="icon" 
-      type="image/png" 
-      href="/favicon.ico">
+    <link rel="icon" 
+      type="image/ico" 
+      href="http://sosnader.tk/favicon.ico">
 </head>
 
 
@@ -87,7 +92,7 @@
       <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
 	<header class="post-header">
-		<h1 class="post-title" itemprop="name headline">Making a Webapp with AngularJS</h1>
+		<h1 class="post-title" itemprop="name headline">Making a Webapp with Angular</h1>
 		<p class="post-meta"><time datetime="2016-12-18T00:00:00-05:00" itemprop="datePublished">Dec 18, 2016</time><br><span>categories: technology</span></p>
 	</header>
 
@@ -97,11 +102,11 @@
 <p>Speaking of finals, though, there’s a peculiar phenonenom the seems to occur during the last week or so of the semester—college students, instead of studying, will inevitably spend all of their free time calculating the lowest possible grade they can get on their finals to still get the grade they want in their classes. I’m not immune to it myself—it’s fun, and quite frankly relieving, to discover you only need a 65% on your CS final to get an A in the course. And if you look online, you’ll find there’s plenty of websites that do the calculations for you. I decided to make one too.
 <!--more--></p>
 
-<p>I wanted to cure my boredom and learn at the same time, so I decided to make it using something I haven’t really had experience with before: <a href="https://angular.io">AngularJS</a>. Although this idea has been done plenty of times before, I thought it would be a nice way to experiment with AngularJS. You can find the finished project <a href="http://sosnader.tk/grade-calc">here</a>.</p>
+<p>I wanted to cure my boredom and learn at the same time, so I decided to make it using something I haven’t really had experience with before: <a href="https://angular.io">Angular</a>. Although this idea has been done plenty of times before, I thought it would be a nice way to experiment with Angular. You can find the finished project <a href="http://sosnader.tk/grade-calc">here</a>.</p>
 
-<p>I faced a few challenges in getting this project up and running, but all in all it only took me the better part of a Sunday afternoon. The biggest challenge that I had to overcome was to actually figure out how AngularJS worked. I had really never touched any sort of Javascript framework before this point and I didn’t really understand the concept. After going through some tutorials and example code on the AngularJS website, I felt ready enough to tackle the project.</p>
+<p>I faced a few challenges in getting this project up and running, but all in all it only took me the better part of a Sunday afternoon. The biggest challenge that I had to overcome was to actually figure out how Angular worked. I had really never touched any sort of Javascript framework before this point and I didn’t really understand the concept. After going through some tutorials and example code on the Angular website, I felt ready enough to tackle the project.</p>
 
-<p>The Angular team makes it really easy to get a project up and running with the <a href="https://cli.angular.io/">angular-cli</a> tool. After running their setup, all I had to do was configure a few components, set up my form and calculations, and apply some styles. It’s pretty barebones, but it got me to learn the basics of what AngularJS is all about, and I’m excited to be be able to use its tools in future projects.</p>
+<p>The Angular team makes it really easy to get a project up and running with the <a href="https://cli.angular.io/">angular-cli</a> tool. After running their setup, all I had to do was configure a few components, set up my form and calculations, and apply some styles. It’s pretty barebones, but it got me to learn the basics of what Angular is all about, and I’m excited to be be able to use its tools in future projects.</p>
 
 <p><a href="http://sosnader.tk/grade-calc"><img src="/img/posts/grade.png" alt="grade app screenshot" /></a></p>
 
@@ -109,24 +114,10 @@
 	
 
 </article>
-<div id="disqus_thread"></div>
-<script>
-	var disqus_config = function () {
-            this.page.url = page.url;  // Replace PAGE_URL with your page's canonical URL variable
-        //this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    (function() { // DON'T EDIT BELOW THIS LINE
-    	var d = document, s = d.createElement('script');
-    	s.src = '//sosnader-tk.disqus.com/embed.js';
-    	s.setAttribute('data-timestamp', +new Date());
-    	(d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-</div>
+    </div>
+  </div>
 
-<footer class="site-footer">
+  <footer class="site-footer">
 
   <div class="wrapper">
 
@@ -166,7 +157,20 @@
 
 </footer>
 
-
+  <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.slider').slick({
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+      });
+    });
+    $("body").on("contextmenu", "img", function(e) {
+  return false;
+});
+  </script>
 </body>
 
 </html>
