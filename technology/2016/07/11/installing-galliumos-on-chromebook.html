@@ -16,12 +16,12 @@
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
   <link rel="stylesheet" type="text/css" href="/css/slick-theme.css">
 
-  <link rel="canonical" href="http://sosnader.tk/technology/2016/07/11/installing-galliumos-on-chromebook.html">
-  <link rel="alternate" type="application/rss+xml" title="Brenden Sosnader" href="http://sosnader.tk/feed.xml">
+  <link rel="canonical" href="http://sosnader.com/technology/2016/07/11/installing-galliumos-on-chromebook.html">
+  <link rel="alternate" type="application/rss+xml" title="Brenden Sosnader" href="http://sosnader.com/feed.xml">
 
     <link rel="icon" 
       type="image/ico" 
-      href="http://sosnader.tk/favicon.ico">
+      href="http://sosnader.com/favicon.ico">
 </head>
 
 
@@ -111,7 +111,7 @@
 
 <p>There’s a few options when it comes to actually installing GalliumOS. The least invasive involves using a utility called <a href="https://chrx.org/">chrx</a>. There’s a simple step-by-step process which involves enabling Developer Mode (more on that later), running a script to flash the firmware, and then running another script to install GalliumOS alongside ChromeOS.</p>
 
-<p>Like I said before however, I didn’t want to see ChromeOS <em>at all.</em> Not to mention there’s other problems with going the dual-boot route. You’ll see a scary white screen warning you of the terrible damage you’ve done to your system (not really) and you’ll always have to enter either <code class="highlighter-rouge">Ctrl+L</code> or <code class="highlighter-rouge">Ctrl+D</code> to enter GalliumOS or ChromeOS, repsectively. And there’s a few minor graphical glitches while booting up. 
+<p>Like I said before however, I didn’t want to see ChromeOS <em>at all.</em> Not to mention there’s other problems with going the dual-boot route. You’ll see a scary white screen warning you of the terrible damage you’ve done to your system (not really) and you’ll always have to enter either <code class="language-plaintext highlighter-rouge">Ctrl+L</code> or <code class="language-plaintext highlighter-rouge">Ctrl+D</code> to enter GalliumOS or ChromeOS, repsectively. And there’s a few minor graphical glitches while booting up. 
 <img src="/img/posts/osv.png" alt="os verification example" />
 <em>example of the scary white screen</em></p>
 
@@ -123,13 +123,13 @@
 
 <p>Once inside, I replaced the SSD and removed the hardware write protect screw. Removing this screw and the metallic circle underneath is necessary to allow proper flashing of the BIOS. <a href="https://plus.google.com/105587851792537311339/posts/XhTMN2zdkHG">There are pictures of the inside here</a>. The screw to remove is right next to the SSD and wifi card.</p>
 
-<p>After restoring ChromeOS, I powered off the device and pressed <code class="highlighter-rouge">Esc+Refresh+Power</code> and then <code class="highlighter-rouge">Ctrl+D</code> to put the device into Developer Mode, which allows changes to be made to the core files. After 15 minutes or so, my laptop rebooted and I pressed <code class="highlighter-rouge">Ctrl+D</code> to get into ChromeOS for the last time.</p>
+<p>After restoring ChromeOS, I powered off the device and pressed <code class="language-plaintext highlighter-rouge">Esc+Refresh+Power</code> and then <code class="language-plaintext highlighter-rouge">Ctrl+D</code> to put the device into Developer Mode, which allows changes to be made to the core files. After 15 minutes or so, my laptop rebooted and I pressed <code class="language-plaintext highlighter-rouge">Ctrl+D</code> to get into ChromeOS for the last time.</p>
 
 <h1 id="flashing-the-bios">Flashing the BIOS</h1>
 
 <p>This step couldn’t have been simpler. I used coolstar’s Full ROM which included fixes for the graphical issues and removed the scary white screen. <strong>Important:</strong> this also removes the ability to boot ChromeOS, meaning it is possible to brick your device. You can still recover it, but it’s a bit of a process.</p>
 
-<p>Anyway, while I was in ChromeOS, I opened up a Chrome tab, pressed <code class="highlighter-rouge">Ctrl+Alt+T</code>, typed “shell,” and then <code class="highlighter-rouge">Enter</code> and then pasted the following command into the prompt and pressed enter.</p>
+<p>Anyway, while I was in ChromeOS, I opened up a Chrome tab, pressed <code class="language-plaintext highlighter-rouge">Ctrl+Alt+T</code>, typed “shell,” and then <code class="language-plaintext highlighter-rouge">Enter</code> and then pasted the following command into the prompt and pressed enter.</p>
 
 <figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nb">cd</span> ~<span class="p">;</span> curl <span class="nt">-L</span> <span class="nt">-O</span> https://mrchromebox.tech/firmware-util.sh<span class="p">;</span> <span class="nb">sudo </span>bash firmware-util.sh</code></pre></figure>
 
@@ -143,11 +143,11 @@
 
 <p>GalliumOS is based on Xubuntu, and while it looks and acts pretty great out of the box, there’s a couple things I did to make it prettier and more functional.</p>
 
-<p>Clicking the GalliumOS icon in the bottom left corner brings up a sort of Start Menu. From there, I navigated to Settings, and then Keyboard, and binded <code class="highlighter-rouge">Ctrl+Alt+T</code> to the command <code class="highlighter-rouge">xfce4-terminal</code>, which opens the Terminal.</p>
+<p>Clicking the GalliumOS icon in the bottom left corner brings up a sort of Start Menu. From there, I navigated to Settings, and then Keyboard, and binded <code class="language-plaintext highlighter-rouge">Ctrl+Alt+T</code> to the command <code class="language-plaintext highlighter-rouge">xfce4-terminal</code>, which opens the Terminal.</p>
 
-<p>I installed <a href="http://www.webupd8.org/2015/01/albert-fast-lightweight-quick-launcher.html">Albert</a> which is a task launcher kind of like Synapse or Alfred. I binded it to <code class="highlighter-rouge">Alt+A</code> and messed around with the functionality. Since the Toshiba Chromebook doesn’t have a <code class="highlighter-rouge">Super</code> key, I wanted something to quickly launch applications.</p>
+<p>I installed <a href="http://www.webupd8.org/2015/01/albert-fast-lightweight-quick-launcher.html">Albert</a> which is a task launcher kind of like Synapse or Alfred. I binded it to <code class="language-plaintext highlighter-rouge">Alt+A</code> and messed around with the functionality. Since the Toshiba Chromebook doesn’t have a <code class="language-plaintext highlighter-rouge">Super</code> key, I wanted something to quickly launch applications.</p>
 
-<p>I also installed <a href="http://linrunner.de/en/tlp/tlp.html">TLP</a>, which is supposed to improve battery life. I haven’t really been able to test how well my battery is in GalliumOS, but I have not noticed it draining any quicker than I would have expected. TLP is in the Ubuntu repo for 16.04 so all it needs is a simple <code class="highlighter-rouge">sudo apt-get intall tlp</code>.</p>
+<p>I also installed <a href="http://linrunner.de/en/tlp/tlp.html">TLP</a>, which is supposed to improve battery life. I haven’t really been able to test how well my battery is in GalliumOS, but I have not noticed it draining any quicker than I would have expected. TLP is in the Ubuntu repo for 16.04 so all it needs is a simple <code class="language-plaintext highlighter-rouge">sudo apt-get intall tlp</code>.</p>
 
 <p>I moved the bottom panel to the top, shrunk it a bit, and removed the functionality that showed open windows. Then I installed <a href="https://launchpad.net/plank">Plank</a> to get more of an OSX feel.</p>
 

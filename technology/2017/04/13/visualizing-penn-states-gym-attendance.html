@@ -16,12 +16,12 @@
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
   <link rel="stylesheet" type="text/css" href="/css/slick-theme.css">
 
-  <link rel="canonical" href="http://sosnader.tk/technology/2017/04/13/visualizing-penn-states-gym-attendance.html">
-  <link rel="alternate" type="application/rss+xml" title="Brenden Sosnader" href="http://sosnader.tk/feed.xml">
+  <link rel="canonical" href="http://sosnader.com/technology/2017/04/13/visualizing-penn-states-gym-attendance.html">
+  <link rel="alternate" type="application/rss+xml" title="Brenden Sosnader" href="http://sosnader.com/feed.xml">
 
     <link rel="icon" 
       type="image/ico" 
-      href="http://sosnader.tk/favicon.ico">
+      href="http://sosnader.com/favicon.ico">
 </head>
 
 
@@ -117,9 +117,9 @@
 <p>Instead, I had to set up a headless browser using selenium and phantomJS in my python browser. What the headless browser does is basically go to the webpage and pretend to be a regular browser, like Chrome, so that the page will render its javascript. Then you can pass the rendered html over to beautifulsoup and commence the parsing. The code is super simple, too:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">url</span> <span class="o">=</span> <span class="s">'http://example.com'</span>
-<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">PhantomJS</span><span class="p">()</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">page_source</span><span class="p">,</span> <span class="s">"html.parser"</span><span class="p">)</span>
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="p">.</span><span class="n">PhantomJS</span><span class="p">()</span>
+<span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">driver</span><span class="p">.</span><span class="n">page_source</span><span class="p">,</span> <span class="s">"html.parser"</span><span class="p">)</span>
 </code></pre></div></div>
 <p>Then you can use the soup object to extract whatever data you need, and you’re set! You just need to make sure you have phantomJS installed.</p>
 
@@ -147,35 +147,35 @@
     <span class="n">user</span> <span class="o">=</span> <span class="s">'user'</span>
     <span class="n">password</span> <span class="o">=</span> <span class="s">'password'</span>
     <span class="n">dbname</span> <span class="o">=</span> <span class="s">'name'</span>
-    <span class="n">json_body</span> <span class="o">=</span> <span class="n">format_url</span><span class="p">()</span> <span class="c"># this is my function from the scraper class</span>
-
+    <span class="n">json_body</span> <span class="o">=</span> <span class="n">format_url</span><span class="p">()</span> <span class="c1"># this is my function from the scraper class
+</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">InfluxDBClient</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">dbname</span><span class="p">)</span>
 
-    <span class="n">client</span><span class="o">.</span><span class="n">create_database</span><span class="p">(</span><span class="n">dbname</span><span class="p">)</span>
+    <span class="n">client</span><span class="p">.</span><span class="n">create_database</span><span class="p">(</span><span class="n">dbname</span><span class="p">)</span>
 
-    <span class="n">client</span><span class="o">.</span><span class="n">create_retention_policy</span><span class="p">(</span><span class="s">'policy_name'</span><span class="p">,</span> <span class="s">'7d'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">client</span><span class="p">.</span><span class="n">create_retention_policy</span><span class="p">(</span><span class="s">'policy_name'</span><span class="p">,</span> <span class="s">'7d'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
-    <span class="n">client</span><span class="o">.</span><span class="n">write_points</span><span class="p">(</span><span class="n">json_body</span><span class="p">)</span>
+    <span class="n">client</span><span class="p">.</span><span class="n">write_points</span><span class="p">(</span><span class="n">json_body</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
         <span class="n">description</span><span class="o">=</span><span class="s">'example code to play with InfluxDB'</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--host'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'localhost'</span><span class="p">,</span>
+    <span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--host'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'localhost'</span><span class="p">,</span>
                         <span class="n">help</span><span class="o">=</span><span class="s">'hostname of InfluxDB http API'</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--port'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">8086</span><span class="p">,</span>
+    <span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--port'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">8086</span><span class="p">,</span>
                         <span class="n">help</span><span class="o">=</span><span class="s">'port of InfluxDB http API'</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">parser</span><span class="p">.</span><span class="n">parse_args</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
-    <span class="n">main</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">args</span><span class="p">.</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">args</span><span class="p">.</span><span class="n">port</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>I got all of that working on my laptop, and now had a python script I could run to consistently add data to the database. The next step was getting data in regular intervals. I needed to set up a server.</p>
 
 <h1 id="the-server">The Server</h1>
 
-<p>As a cheap college student, I never want to spend money if I don’t absolutely have to. For instance, this website is hosted by <a href="https://pages.github.com/">github pages</a> entirely for free, as is my <a href="http://sosnader.tk/grade-calc/">Grade Calculator</a> project. But, github pages is just a simple static host for frontend content. I needed a real machine to run my database on.</p>
+<p>As a cheap college student, I never want to spend money if I don’t absolutely have to. For instance, this website is hosted by <a href="https://pages.github.com/">github pages</a> entirely for free, as is my <a href="http://sosnader.com/grade-calc/">Grade Calculator</a> project. But, github pages is just a simple static host for frontend content. I needed a real machine to run my database on.</p>
 
 <p>Before making the jump to buying a VPS though, I first pulled out my dusty old Raspberry Pi Model A. After a <em>lot</em> of tweaking and fiddling, I got the database set up on a headless installation of raspbian. There’s not too much to talk about here. After installing InfluxDB, Python 3, and all their respective dependencies, I added a simple cron job add data every ten minutes.</p>
 
@@ -186,11 +186,11 @@
 
 <p>Configuration was actually super easy. I installed nginx and set up a configuration file. The config file had two key parts. The first part told the server where to look to find the html files to serve to port 80. THe second part told the server where to look if someone queried the database, which, for InfluxDB, takes the form of:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://servername:8086/query?your-query-here
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://servername:8086/query?your-query-here
 </code></pre></div></div>
 <p>I didn’t want to have that silly 8086 there so I set up a reverse proxy to point any requests to</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://servername/query
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://servername/query
 </code></pre></div></div>
 
 <p>to port 8086 and to the database. InfluxDB has some basic authentication built in, and I’m not too worried about anyone hacking into my database. They wouldn’t find anything anyway, and I took enough basic steps I feel to stop any bot or casual hacker from doing something they shouldn’t.</p>
